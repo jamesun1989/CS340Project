@@ -18,7 +18,7 @@
 <div id="objectProperties" class="objectProperties"></div>
 
 <div class="well">
-	<p class="lead text-muted">Choose a CPU</p>
+	<p class="lead text-muted">Choose Storage</p>
 </div>
 
 
@@ -30,7 +30,7 @@
         <div class="row">
           <div class="col-sm-4 col-lg-4">
           	<div class="col-sm-2 col-lg-2">
-            	<p class="lead text-muted"></p>
+            	<p class="lead text-muted">MANUFACTURER</p>
             	<div class="checkbox">
               	<label>
                 	<input type="checkbox" value="" checked="">
@@ -40,13 +40,13 @@
             	<div class="checkbox">
               	<label>
                 	<input type="checkbox" value="">
-                	AMD
+                	ADATA
               	</label>
             	</div>
             	<div class="checkbox">
               	<label>
                 	<input type="checkbox" value="">
-                	Intel
+                	Kingston
               	</label>
             	</div>
         	</div>

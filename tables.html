@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<link rel="stylesheet" type="text/css" href="bootstrap.techie.css">
+
+</head>
+<body>
+<h2>Specifications</h2>
+<div width = '80%'>
+    <table id="objectproperties" class="table table-bordered" data-effect="fade" width = '50%'>
+        <thead>
+            <tr>
+                <th>Properties</th>
+                <th>Values</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</div>
+<script> 
+function getUrlParameters()
+{
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+    sURLVariables = sPageURL.split('&'),
+    sParameterName,
+    i;
+
+    var object = {};
+    for(i = 0; i < sURLVariables.length; i++)
+    {
+        sParameterName = sURLVariables[i].split('=');
+
+        if(sParameterName[0] !== '' && sParameterName[1] !== undefined)
+        {
+            object[sParameterName[0]] = sParameterName[1];
+        }
+    }
+    return object;
+}
+
+$(document).ready(function(){
+    var data = getUrlParameters();
+    $.each(data, function(index, value)
+	{
+		$('#objectproperties tbody').append(`<tr><td>${index}</td> <td>${value}</td></tr>`);
+	});
+});
+</script>
+</body>
+</html>

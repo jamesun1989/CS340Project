@@ -131,7 +131,16 @@ $(document).ready(function() {
 		{
 			"targets": 0,
 			"createdCell": function(td, cellData, rowData, row, col){
-				$(td).html(`<a href='#'>${rowData.manufacturer}</a>`);
+				link = './tables.html?';
+				myIndex = 0;
+				$.each(rowData, function(index, value){
+					if(myIndex == 0)
+						link += `${index}=${value}`;
+					else
+						link += `&${index}=${value}`;
+					myIndex++;
+				})
+				$(td).html(`<a href='${link}'>${rowData.manufacturer}</a>`);
 			}
 		}],
 		"deferRender": true,

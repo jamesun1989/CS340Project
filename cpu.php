@@ -2,6 +2,7 @@
 <html>
 
 <head>
+	<link rel="icon" href="img/favicon.ico">
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -49,27 +50,6 @@
               	</label>
             	</div>
         	</div>
-        	<!--<div class="col-sm-4 col-lg-4">
-            	<p class="lead text-muted">SERIES</p>
-            	<div class="checkbox">
-              	<label>
-                	<input type="checkbox" value="" checked="">
-                	AMD Ryzen 3
-              	</label>
-            	</div>
-            	<div class="checkbox">
-              	<label>
-                	<input type="checkbox" value="">
-                	Intel Core i7
-              	</label>
-            	</div>
-            	<div class="checkbox">
-              	<label>
-                	<input type="checkbox" value="">
-                	Intel Core i9
-              	</label>
-            	</div>
-        	</div-->
           </div>
           <div class="col-sm-8 col-lg-8">
             <p class="lead text-muted">Parts</p>

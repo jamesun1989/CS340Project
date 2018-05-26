@@ -3,6 +3,7 @@
 
 <head>
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+	<link rel="icon" href="img/favicon.ico">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
@@ -21,10 +22,40 @@
 		</div>
 
 		<div class="row">
-			<div class="col-md-6">
-				<h2>Sample builds</h2>
-			</div>			
-		</div>
+			<div class="col-sm-6 col-lg-6">
+				<h3>Sample Builds</h3>
+				<div class="panel-group" id="accordion-panel">
+					<div class="panel panel-default">
+            			<div class="panel-heading">
+            				<h4 class="panel-title">
+            					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-panel" href="#samplebuildspanelone">
+                  					Sample Builds #1
+                				</a>
+              				</h4>
+            			</div>
+            			<div id="samplebuildspanelone" class="panel-collapse collapse in">
+            				<div class="panel-body">
+                				Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+              				</div>
+            			</div>
+          			</div>
+          			<div class="panel panel-default">
+          				<div class="panel-heading">
+          					<h4 class="panel-title">
+          						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-panel" href="#samplebuildspaneltwo">
+                  				Sample Builds #2
+                				</a>
+              				</h4>
+            			</div>
+            				<div id="samplebuildspaneltwo" class="panel-collapse collapse">
+              					<div class="panel-body">
+                					Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+              					</div>
+            				</div>
+          			</div>
+        		</div>
+      		</div>
+      	</div>
 
 		<hr>
 

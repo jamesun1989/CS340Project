@@ -4,7 +4,7 @@
 <head>
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<!--<link href = 'test.css' rel = 'stylesheet' />-->
+	<link rel="icon" href="img/favicon.ico">
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="bootstrap.techie.css">

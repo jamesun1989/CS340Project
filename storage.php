@@ -2,9 +2,9 @@
 <html>
 
 <head>
+	<link rel="icon" href="img/favicon.ico">
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="icon" href="img/favicon.ico">
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="bootstrap.techie.css">
@@ -85,35 +85,22 @@
 
 
 <script>
-function getUrlParameters()
-{
-	var sPageURL = decodeURIComponent(window.location.search.substring(1)),
-	sURLVariables = sPageURL.split('&'),
-	sParameterName,
-	i;
-
-	var object = {};
-	for(i = 0; i < sURLVariables.length; i++)
+function getData(getstorage){
+	$.ajax({
+		method: "GET",
+		url: getstorage,
+		dataType: "json"
+	})
+	.done(function(data)
 	{
-		sParameterName = sURLVariables[i].split('=');
-
-		if(sParameterName[0] !== '' && sParameterName[1] !== undefined)
-		{
-			object[sParameterName[0]] = sParameterName[1];
-		}
-	}
-
-	return object;
+		//store the result in localStorage and then load it into our DataTable to be displayed
+		localStorage.setItem('dataTablesData', JSON.stringify(data));
+		$('#ajaxExample').DataTable().clear();
+		$('#ajaxExample').DataTable().rows.add(data).draw();
+	});
 }
 
 $(document).ready(function() {
-	//get a object repsenting the url variables and their paramters
-	//then visualize it by adding them to our objectProperties div
-	var data = getUrlParameters();
-	$.each(data, function(index, value)
-	{
-		$('#objectProperties').append(`<p>${index}: ${value}</p>`);
-	});
 
 	//create a DataTable using the ajaxExample table
 	$('#ajaxExample').DataTable(
@@ -147,50 +134,14 @@ $(document).ready(function() {
 		"order": []
 	});
 
-	//foreach header column in our table, create a input tag
-	$('#ajaxExample thead th').each(function()
-	{
-		//grab the header column's name and use that as the search text
-		var title = $(this).text();
-		$('#tableInputs').append(`<input type="text" placeholder="Search ${title}" />`);
-	});
-
-	//foreach column in our table, attach a search function to the input tags we just created
-	//input tag 1 will do a equals search on column 1 (and only column 1)
-	$('#ajaxExample').DataTable().columns().every(function(index)
-	{
-		var that = this;
-
-		//everytime they type or paste into the input box lets call this search function
-		$('#tableInputs input').eq(index).on('keyup change', function()
-		{
-			//column.search() returns the queued item that it will be searched on
-			//does not take effect until the table is updated with something like draw()
-
-			//if the item that is being 'searched' is not equal to the value in this input tag
-			//then update the search with our input tags value
-			if(that.search() !== this.value)
-			{
-				that.search(this.value).draw();
-			}
-		});
-	});
-
 	//make a ajax call to get some remote data
 	$.ajax({
 		method: "GET",
-		data: {
-			//"manufacturer": "Intel"
-		},
-		url: 'https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/getStorage.php',
-		dataType: "json"
+		url: "./config.json",
+		datatype: "json"
 	})
-	.done(function(data)
-	{
-		//store the result in localStorage and then load it into our DataTable to be displayed
-		localStorage.setItem('dataTablesData', JSON.stringify(data));
-		$('#ajaxExample').DataTable().clear();
-		$('#ajaxExample').DataTable().rows.add(data).draw();
+	.done(function(data){
+		getData(data.getStorage);
 	});
 });
 </script>

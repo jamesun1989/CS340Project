@@ -7,13 +7,6 @@
 
 	<link rel="icon" href="img/favicon.ico">
 
-	<!--<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="bootstrap.techie.min.css">
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
-
 	<link rel="stylesheet" type="text/css" href="Bootstrap3/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css">
 	<link rel="stylesheet" type="text/css" href="TechieBootstrap/bootstrap.techie.min.css">
@@ -21,6 +14,8 @@
 	<script type="text/javascript" src="jQuery/jquery.min.js"></script>
 	<script type="text/javascript" src="Bootstrap3/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="DataTables/datatables.min.js"></script>
+	<script type="text/javascript" src="config.js"></script>
+	<script type="text/javascript" src="cpu.js"></script>
 </head>
 
 <body>
@@ -88,70 +83,6 @@
       </div>
     </div>
 
-
-
-<script>
-
-function getData(getcpu){
-	$.ajax({
-		method: "GET",
-		url: getcpu,
-		dataType: "json"
-	})
-	.done(function(data)
-	{
-		//store the result in localStorage and then load it into our DataTable to be displayed
-		localStorage.setItem('dataTablesData', JSON.stringify(data));
-		$('#ajaxExample').DataTable().clear();
-		$('#ajaxExample').DataTable().rows.add(data).draw();
-	});
-}
-
-$(document).ready(function() {
-
-	//create a DataTable using the ajaxExample table
-	$('#ajaxExample').DataTable(
-	{
-		'columns': [
-			{ 'data': 'name', 'width': '%20'},
-			{ 'data': 'cores', 'width': '%5' },
-			{ 'data': 'threads', 'width': '%5' },
-			{ 'data': 'socket', 'width': '%10' },
-			{ 'data': 'clockSpeed', 'width': '%10'},
-			{ 'data': 'manufacturer', 'width': '20%'}
-		],
-		'columnDefs': [
-		{
-			"targets": 0,
-			"createdCell": function(td, cellData, rowData, row, col){
-				link = './tables.html?';
-				myIndex = 0;
-				$.each(rowData, function(index, value){
-					if(myIndex == 0)
-						link += `${index}=${value}`;
-					else
-						link += `&${index}=${value}`;
-					myIndex++;
-				})
-				$(td).html(`<a href='${link}'>${rowData.name}</a>`);
-			}
-		}],
-		"deferRender": true,
-		"order": []
-	});
-
-	//make a ajax call to get some remote data
-	$.ajax({
-		method: "GET",
-		url: "./config.json",
-		datatype: "json"
-	})
-	.done(function(data){
-		getData(data.getCPU);
-	});
-});
-
-</script>
 </div>
 </body>
 

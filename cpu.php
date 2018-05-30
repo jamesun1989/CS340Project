@@ -1,15 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<link rel="icon" href="img/favicon.ico">
-	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+
+	<!--<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="bootstrap.techie.min.css">
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
+	<link rel="stylesheet" type="text/css" href="Bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap.techie.min.css">
+
+	<script type="text/javascript" src="jQuery/jquery.min.js"></script>
+	<script type="text/javascript" src="Bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" src="DataTables/datatables.min.js"></script>
 </head>
 
 <body>

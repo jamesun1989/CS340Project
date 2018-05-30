@@ -1,6 +1,6 @@
 function dynamicPartLink(td, cellData, rowData, row, col)
 {
-	var link = 'tables.html?';
+	var link = 'partsDetail.php?';
 	var myIndex = 0;
 
 	$.each(rowData, function(index, value)

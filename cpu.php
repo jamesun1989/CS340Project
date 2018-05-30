@@ -23,7 +23,7 @@
 		<?php include '_nav.html'; ?>
 
 <div class="well">
-	<p class="lead text-muted">Choose a CPU</p>
+	<p class="lead">Choose a CPU</p>
 </div>
 
 <br>
@@ -33,7 +33,7 @@
         <div class="row">
           <div class="col-sm-4 col-lg-4">
           	<div class="col-sm-4 col-lg-4">
-            	<p class="lead text-muted">MANUFACTURER</p>
+            	<p class="lead">MANUFACTURER</p>
             	<div class="radio">
               	<label>
                 	<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">

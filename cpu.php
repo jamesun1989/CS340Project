@@ -14,12 +14,12 @@
 	<link rel="stylesheet" type="text/css" href="bootstrap.techie.min.css">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 
-	<link rel="stylesheet" type="text/css" href="Bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="Bootstrap3/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css">
-	<link rel="stylesheet" type="text/css" href="bootstrap.techie.min.css">
+	<link rel="stylesheet" type="text/css" href="TechieBootstrap/bootstrap.techie.min.css">
 
 	<script type="text/javascript" src="jQuery/jquery.min.js"></script>
-	<script type="text/javascript" src="Bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" src="Bootstrap3/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="DataTables/datatables.min.js"></script>
 </head>
 

@@ -31,35 +31,35 @@
 <div class="row">
       <div class="col-sm-12 col-lg-12">
         <div class="row">
-          <div class="col-sm-4 col-lg-4">
-          	<div class="col-sm-4 col-lg-4">
+          <div class="col-sm-3 col-lg-3">
+          	<div class="col-sm-3 col-lg-3">
             	<p class="lead">MANUFACTURER</p>
             	<div class="radio">
               	<label>
-                	<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+                	<input type="radio" name="optionsRadios" id="optionsRadios1" value="ALL" checked="">
                 	ALL
               	</label>
             	</div>
             	<div class="radio">
               	<label>
-                	<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+                	<input type="radio" name="optionsRadios" id="optionsRadios1" value="Intel">
                 	Intel
               	</label>
             	</div>
             	<div class="radio">
               	<label>
-                	<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+                	<input type="radio" name="optionsRadios" id="optionsRadios1" value="AMD">
                 	AMD
               	</label>
             	</div>
         	</div>
           </div>
-          <div class="col-sm-8 col-lg-8">
+          <div class="col-sm-9 col-lg-9">
             <p class="lead text-muted">Parts</p>
             <table id="ajaxExample" class="table table-bordered" data-effect="fade">
               <thead>
 				<tr>
-					<th>Name</th>
+					<th width="20%">Name</th>
 					<th>Cores</th>
 					<th>Threads</th>
 					<th>Socket</th>
@@ -76,8 +76,8 @@
 				<th>Clock Speed</th>
 				<th>Manufacturer</th>
 			</tr>
-		</tfoot>
-            </table>
+			</tfoot>
+           </table>
           </div>
         </div>
       </div>

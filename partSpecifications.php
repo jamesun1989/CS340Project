@@ -16,7 +16,7 @@
 	<script type="text/javascript" src="DataTables/datatables.min.js"></script>
 	<script type="text/javascript" src="config.js"></script>
 	<script type="text/javascript" src="searchPages.js"></script>
-	<script type="text/javascript" src = "partsDetail"></script>
+	<script type="text/javascript" src = "partSpecification"></script>
 
 </head>
 

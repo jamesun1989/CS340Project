@@ -1,22 +1,13 @@
-function dynamicPartLink(td, cellData, rowData, row, col)
+var ajaxParams =
 {
-	link = './tables.html?';
-
-	myIndex = 0;
-	$.each(rowData, function(index, value){
-		if(myIndex == 0)
-			link += `${index}=${value}`;
-		else
-			link += `&${index}=${value}`;
-		myIndex++;
-	})
-
-	$(td).html(`<a href='${link}'>${rowData.name}</a>`);
-}
+	manufacturer: '',
+	socket: '',
+	family: ''
+};
 
 $(document).ready(function()
 {
-	$('#ajaxExample').DataTable(
+	$('#partTable').DataTable(
 	{
 		'columns':
 		[
@@ -46,8 +37,17 @@ $(document).ready(function()
 	})
 	.done(function(data)
 	{
-		$('#ajaxExample').DataTable().clear();
-		$('#ajaxExample').DataTable().rows.add(data).draw();
+		$('#partTable').DataTable().clear();
+		$('#partTable').DataTable().rows.add(data).draw();
+		createRadioSelect($('#manufacturerSelect'), 'Manufacturer', 'manufacturer', GetUnique(data, 'manufacturer'), CONFIG.getCPU, ajaxParams);
+		createRadioSelect($('#socketSelect'),       'Socket',       'socket',       GetUnique(data, 'socket'),       CONFIG.getCPU, ajaxParams);
+		createRadioSelect($('#familySelect'),       'Family',       'family',       GetUnique(data, 'family'),       CONFIG.getCPU, ajaxParams);
+
+		$('#test input').click(function(){ console.log(this.value); });
+		$('#test input')[0].oninput = function(){ $('#test span').html(this.value); };
+		/*console.log(GetMinMax(data, 'cores'));
+		console.log(GetMinMax(data, 'threads'));
+		console.log(GetMinMax(data, 'clockSpeed'));*/
 	});
 });
 

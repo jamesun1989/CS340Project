@@ -20,38 +20,34 @@
 	<div class="container">
 		<?php include '_nav.html'; ?>
 
-<div id="objectProperties" class="objectProperties"></div>
-
 <div class="well">
-	<p class="lead">Choose Storage</p>
+	<p class="lead">Choose a Graphic Card</p>
 </div>
 
-
-<div id="tableInputs"></div>
 <br>
 
 <div class="row">
       <div class="col-sm-12 col-lg-12">
         <div class="row">
           <div class="col-sm-4 col-lg-4">
-          	<div class="col-sm-2 col-lg-2">
+          	<div class="col-sm-4 col-lg-4">
             	<p class="lead">MANUFACTURER</p>
-            	<div class="checkbox">
+            	<div class="radio">
               	<label>
-                	<input type="checkbox" value="" checked="">
+                	<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
                 	ALL
               	</label>
             	</div>
-            	<div class="checkbox">
+            	<div class="radio">
               	<label>
-                	<input type="checkbox" value="">
-                	ADATA
+                	<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+                	Intel
               	</label>
             	</div>
-            	<div class="checkbox">
+            	<div class="radio">
               	<label>
-                	<input type="checkbox" value="">
-                	Kingston
+                	<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+                	AMD
               	</label>
             	</div>
         	</div>
@@ -59,28 +55,26 @@
           <div class="col-sm-8 col-lg-8">
             <p class="lead">Parts</p>
             <table id="ajaxExample" class="table table-bordered" data-effect="fade">
-              <thead>
-				<tr>
-					<th>Manufacturer</th>
-					<th>Size</th>
-					<th>Form Factor</th>
-					<th>Series</th>
-					<th>RPM</th>
-					<th>SSD</th>
-					<th>HDD</th>
-				</tr>
-			</thead>
-			<tfoot>
-			<tr>
-				<th>Manufacturer</th>
-					<th>Size</th>
-					<th>Form Factor</th>
-					<th>Series</th>
-					<th>RPM</th>
-					<th>SSD</th>
-					<th>HDD</th>
-			</tr>
-		</tfoot>
+            	<thead>
+            		<tr>
+						<th>Name</th>
+						<th>Manufacturer</th>
+						<th>GPU Chipset</th>
+						<th>Clock Speed</th>
+						<th>Series</th>
+						<th>Memory Type</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th>Name</th>
+						<th>Manufacturer</th>
+						<th>GPU Chipset</th>
+						<th>Clock Speed</th>
+						<th>Series</th>
+						<th>Memory Type</th>
+					</tr>
+				</tfoot>
             </table>
           </div>
         </div>
@@ -90,10 +84,11 @@
 
 
 <script>
-function getData(getstorage){
+
+function getData(getgraphicscards){
 	$.ajax({
 		method: "GET",
-		url: getstorage,
+		url: getgraphicscards,
 		dataType: "json"
 	})
 	.done(function(data)
@@ -111,13 +106,12 @@ $(document).ready(function() {
 	$('#ajaxExample').DataTable(
 	{
 		'columns': [
-			{ 'data': 'manufacturer', 'width': '20%'},
-			{ 'data': 'size', 'width': '10'},
-			{ 'data': 'formFactor', 'width': '10'},
-			{ 'data': 'series', 'width': '10'},
-			{ 'data': 'RPM', 'width': '10'},
-			{ 'data': 'ssd', 'width': '10'},
-			{ 'data': 'hdd', 'width': '10'},
+			{ 'data': 'name', 'width': '%20'},
+			{ 'data': 'manufacturer', 'width': '10%'},
+			{ 'data': 'gpuChipset', 'width': '%20' },
+			{ 'data': 'clockSpeed', 'width': '%5' },
+			{ 'data': 'series', 'width': '%10' },
+			{ 'data': 'memoryType', 'width': '%10' }
 		],
 		'columnDefs': [
 		{
@@ -132,7 +126,7 @@ $(document).ready(function() {
 						link += `&${index}=${value}`;
 					myIndex++;
 				})
-				$(td).html(`<a href='${link}'>${rowData.manufacturer}</a>`);
+				$(td).html(`<a href='${link}'>${rowData.name}</a>`);
 			}
 		}],
 		"deferRender": true,
@@ -146,9 +140,10 @@ $(document).ready(function() {
 		datatype: "json"
 	})
 	.done(function(data){
-		getData(data.getStorage);
+		getData(data.getGraphicsCards);
 	});
 });
+
 </script>
 </div>
 </body>

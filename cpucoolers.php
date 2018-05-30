@@ -2,13 +2,18 @@
 <html>
 
 <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 	<link rel="icon" href="img/favicon.ico">
-	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="bootstrap.techie.min.css">
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="Bootstrap3/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css">
+	<link rel="stylesheet" type="text/css" href="TechieBootstrap/bootstrap.techie.min.css">
+
+	<script type="text/javascript" src="jQuery/jquery.min.js"></script>
+	<script type="text/javascript" src="Bootstrap3/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="DataTables/datatables.min.js"></script>
 </head>
 
 <body>
@@ -16,7 +21,7 @@
 		<?php include '_nav.html'; ?>
 
 <div class="well">
-	<p class="lead text-muted">Choose a CPU</p>
+	<p class="lead">Choose a CPU cooler</p>
 </div>
 
 <br>
@@ -26,7 +31,7 @@
         <div class="row">
           <div class="col-sm-4 col-lg-4">
           	<div class="col-sm-4 col-lg-4">
-            	<p class="lead text-muted">MANUFACTURER</p>
+            	<p class="lead">MANUFACTURER</p>
             	<div class="radio">
               	<label>
                 	<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
@@ -48,7 +53,7 @@
         	</div>
           </div>
           <div class="col-sm-8 col-lg-8">
-            <p class="lead text-muted">Parts</p>
+            <p class="lead">Parts</p>
             <table id="ajaxExample" class="table table-bordered" data-effect="fade">
               <thead>
 				<tr>

@@ -94,3 +94,30 @@ function createRadioSelect(appendTo, title, searchName, list, endPoint, endPoint
 	});
 }
 
+function createRangeSlider(appendTo, title, searchName, values, step, endPoint, endPointParams, endPointName1, endPointName2)
+{
+	endPointParams[endPointName1] = values[0];
+	endPointParams[endPointName2] = values[1];
+
+	var output = `<p class="lead">${title}</p><div class="range"><input name="${searchName}" class="slider" type="text" data-slider-value="[0,0]"/></div>`;
+	appendTo.append(output);
+
+	$(`input[name="${searchName}"]`).slider(
+	{
+		min: values[0],
+		max: values[1],
+		step: step,
+		value: values,
+		tooltip: 'show',
+  		tooltip_split: true,
+  		tooltip_position: 'top'
+	}).on('slideStop', function()
+	{
+		var currentValues = this.value.split(',');
+		endPointParams[endPointName1] = currentValues[0];
+		endPointParams[endPointName2] = currentValues[1];
+
+		loadAjaxData(endPoint, endPointParams);
+	});
+}
+

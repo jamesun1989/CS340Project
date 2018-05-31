@@ -10,11 +10,13 @@
 	<link rel="stylesheet" type="text/css" href="Bootstrap3/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css">
 	<link rel="stylesheet" type="text/css" href="TechieBootstrap/bootstrap.techie.min.css">
+	<link rel="stylesheet" type="text/css" href="Bootstrap-Slider/bootstrap-slider.min.css">
 	<link rel="stylesheet" type="text/css" href="searchPages.css">
 
 	<script type="text/javascript" src="jQuery/jquery.min.js"></script>
 	<script type="text/javascript" src="Bootstrap3/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="DataTables/datatables.min.js"></script>
+	<script type="text/javascript" src="Bootstrap-Slider/bootstrap-slider.min.js"></script>
 	<script type="text/javascript" src="config.js"></script>
 	<script type="text/javascript" src="searchPages.js"></script>
 	<script type="text/javascript" src="cpu.js"></script>
@@ -35,12 +37,6 @@
 		<div class="row">
 			<div class="col-sm-3 col-lg-3">
 				<div class="row">
-					<label id="test">
-						<span>5</span>
-						<input id="test" type="range" min=0 max=10 value=5></input>
-					</label>
-				</div>
-				<div class="row">
 					<div class="col-sm-3 col-lg-3" id="manufacturerSelect"></div>
 				</div>
 				<div class="row">
@@ -48,6 +44,15 @@
 				</div>
 				<div class="row">
 					<div class="col-sm-3 col-lg-3" id="familySelect"></div>
+				</div>
+				<div class="row">
+					<div class="col-sm-3 col-lg-3" id="coresRange"></div>
+				</div>
+				<div class="row">
+					<div class="col-sm-3 col-lg-3" id="threadsRange"></div>
+				</div>
+				<div class="row">
+					<div class="col-sm-3 col-lg-3" id="clockSpeedRange"></div>
 				</div>
 			</div>
 			<div class="col-sm-9 col-lg-9">

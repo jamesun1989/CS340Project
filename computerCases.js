@@ -38,9 +38,11 @@ $(document).ready(function()
 	{
 		$('#partTable').DataTable().clear();
 		$('#partTable').DataTable().rows.add(data).draw();
-		createRadioSelect($('#manufacturerSelect'), 'Manufacturer', 'manufacturer', GetUnique(data, 'manufacturer'), CONFIG.getComputerCases, ajaxParams);
-		createRadioSelect($('#typeSelect'),         'Type',         'type',         GetUnique(data, 'type'),         CONFIG.getComputerCases, ajaxParams);
-		createRangeSlider($('#cpuCoolerClearanceRange'), 'CPU Cooler Clearance', 'cpuCoolerClearance', GetMinMax(data, 'cpuCoolerClearance'), 1, CONFIG.getComputerCases, ajaxParams, 'minCpuClearance', 'maxCpuClearance');
+
+		var filterHelper = new FilterList(CONFIG.getComputerCases, ajaxParams);
+		filterHelper.addRadioSelect($('#manufacturerSelect'), 'Manufacturer', 'manufacturer', GetUnique(data, 'manufacturer'));
+		filterHelper.addRadioSelect($('#typeSelect'),         'Type',         'type',         GetUnique(data, 'type'));
+		filterHelper.addRangeSlider($('#cpuCoolerClearanceRange'), 'CPU Cooler Clearance', 'cpuCoolerClearance', GetMinMax(data, 'cpuCoolerClearance'), 1, 'minCpuClearance', 'maxCpuClearance');
 	});
 });
 

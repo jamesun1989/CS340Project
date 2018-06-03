@@ -44,11 +44,13 @@ $(document).ready(function()
 	{
 		$('#partTable').DataTable().clear();
 		$('#partTable').DataTable().rows.add(data).draw();
-		createRadioSelect($('#manufacturerSelect'), 'Manufacturer', 'manufacturer', GetUnique(data, 'manufacturer'), CONFIG.getRAM, ajaxParams);
-		createRadioSelect($('#typeSelect'),         'Type',         'type',         GetUnique(data, 'type'),         CONFIG.getRAM, ajaxParams);
-		createRangeSlider($('#speedRange'), 'Speed', 'speed', GetMinMax(data, 'speed'), 1.0, CONFIG.getRAM, ajaxParams, 'minSpeed', 'maxSpeed');
-		createRangeSlider($('#sticksRange'), 'Stick Count', 'sticks', GetMinMax(data, 'sticks'), 1, CONFIG.getRAM, ajaxParams, 'minSticks', 'maxSticks');
-		createRangeSlider($('#sizeRange'), 'Size', 'size', GetMinMax(data, 'size'), 0.1, CONFIG.getRAM, ajaxParams, 'minSize', 'maxSize');
+
+		var filterHelper = new FilterList(CONFIG.getRAM, ajaxParams);
+		filterHelper.addRadioSelect($('#manufacturerSelect'), 'Manufacturer', 'manufacturer', GetUnique(data, 'manufacturer'));
+		filterHelper.addRadioSelect($('#typeSelect'),         'Type',         'type',         GetUnique(data, 'type'));
+		filterHelper.addRangeSlider($('#speedRange'), 'Speed', 'speed', GetMinMax(data, 'speed'), 1.0, 'minSpeed', 'maxSpeed');
+		filterHelper.addRangeSlider($('#sticksRange'), 'Stick Count', 'sticks', GetMinMax(data, 'sticks'), 1, 'minSticks', 'maxSticks');
+		filterHelper.addRangeSlider($('#sizeRange'), 'Size', 'size', GetMinMax(data, 'size'), 0.1, 'minSize', 'maxSize');
 	});
 });
 

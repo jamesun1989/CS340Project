@@ -43,11 +43,13 @@ $(document).ready(function()
 	{
 		$('#partTable').DataTable().clear();
 		$('#partTable').DataTable().rows.add(data).draw();
-		createRadioSelect($('#manufacturerSelect'), 'Manufacturer', 'manufacturer', GetUnique(data, 'manufacturer'), CONFIG.getMotherboards, ajaxParams);
-		createRadioSelect($('#socketSelect'),       'Socket',       'socket',       GetUnique(data, 'socket'),       CONFIG.getMotherboards, ajaxParams);
-		createRadioSelect($('#formFactorSelect'),   'Form Factor',  'formFactor',   GetUnique(data, 'formFactor'),   CONFIG.getMotherboards, ajaxParams);
-		createRangeSlider($('#ramSlotsRange'), 'RAM Slots', 'ramSlots', GetMinMax(data, 'ramSlots'), 1, CONFIG.getMotherboards, ajaxParams, 'minSlots', 'maxSlots');
-		createRangeSlider($('#maxRamRange'), 'Max RAM', 'maxRam', GetMinMax(data, 'maxRam'), 0.1, CONFIG.getMotherboards, ajaxParams, 'minRAM', 'maxRAM');
+
+		var filterHelper = new FilterList(CONFIG.getMotherboards, ajaxParams);
+		filterHelper.addRadioSelect($('#manufacturerSelect'), 'Manufacturer', 'manufacturer', GetUnique(data, 'manufacturer'));
+		filterHelper.addRadioSelect($('#socketSelect'),       'Socket',       'socket',       GetUnique(data, 'socket'));
+		filterHelper.addRadioSelect($('#formFactorSelect'),   'Form Factor',  'formFactor',   GetUnique(data, 'formFactor'));
+		filterHelper.addRangeSlider($('#ramSlotsRange'), 'RAM Slots', 'ramSlots', GetMinMax(data, 'ramSlots'), 1, 'minSlots', 'maxSlots');
+		filterHelper.addRangeSlider($('#maxRamRange'), 'Max RAM', 'maxRam', GetMinMax(data, 'maxRam'), 0.1, 'minRAM', 'maxRAM');
 	});
 });
 

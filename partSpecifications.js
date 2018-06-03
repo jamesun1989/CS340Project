@@ -23,6 +23,7 @@ $(document).ready(function()
     var data = getUrlParameters();
     $.each(data, function(index, value)
 	{
-		$('#objectproperties tbody').append(`<tr><td>${index}</td> <td>${value}</td></tr>`);
+		$('#objectproperties tbody').append('<tr><td>'+index+'</td><td>'+value+'</td></tr>');
 	});
 });
+

@@ -42,11 +42,13 @@ $(document).ready(function()
 	{
 		$('#partTable').DataTable().clear();
 		$('#partTable').DataTable().rows.add(data).draw();
-		createRadioSelect($('#manufacturerSelect'), 'Manufacturer', 'manufacturer', GetUnique(data, 'manufacturer'), CONFIG.getStorage, ajaxParams);
-		createRadioSelect($('#formFactorSelect'),   'Form Factor',  'formFactor',   GetUnique(data, 'formFactor'),   CONFIG.getStorage, ajaxParams);
-		createRadioSelect($('#ssdSelect'),          'SSD',          'isSSD',        [0, 1],                          CONFIG.getStorage, ajaxParams);
-		createRadioSelect($('#hddSelect'),          'HDD',          'isHDD',        [0, 1],                          CONFIG.getStorage, ajaxParams);
-		createRangeSlider($('#sizeRange'), 'Size', 'size', GetMinMax(data, 'size'), 1, CONFIG.getStorage, ajaxParams, 'minSize', 'maxSize');
+
+		var filterHelper = new FilterList(CONFIG.getStorage, ajaxParams);
+		filterHelper.addRadioSelect($('#manufacturerSelect'), 'Manufacturer', 'manufacturer', GetUnique(data, 'manufacturer'));
+		filterHelper.addRadioSelect($('#formFactorSelect'),   'Form Factor',  'formFactor',   GetUnique(data, 'formFactor'));
+		filterHelper.addRadioSelect($('#ssdSelect'),          'SSD',          'isSSD',        [0, 1]);
+		filterHelper.addRadioSelect($('#hddSelect'),          'HDD',          'isHDD',        [0, 1]);
+		filterHelper.addRangeSlider($('#sizeRange'), 'Size', 'size', GetMinMax(data, 'size'), 1, 'minSize', 'maxSize');
 	});
 });
 

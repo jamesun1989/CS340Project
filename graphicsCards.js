@@ -44,11 +44,13 @@ $(document).ready(function()
 	{
 		$('#partTable').DataTable().clear();
 		$('#partTable').DataTable().rows.add(data).draw();
-		createRadioSelect($('#manufacturerSelect'), 'Manufacturer', 'manufacturer', GetUnique(data, 'manufacturer'), CONFIG.getGraphicsCards, ajaxParams);
-		createRadioSelect($('#gpuChipsetSelect'),   'GPU Chipsets', 'gpuChipset',   GetUnique(data, 'gpuChipset'),   CONFIG.getGraphicsCards, ajaxParams);
-		createRadioSelect($('#memoryTypeSelect'),   'Memory Type',  'memoryType',   GetUnique(data, 'memoryType'),   CONFIG.getGraphicsCards, ajaxParams);
-		createRangeSlider($('#clockSpeedRange'), 'Clock Speed', 'clockSpeed', GetMinMax(data, 'clockSpeed'), 0.1, CONFIG.getGraphicsCards, ajaxParams, 'minClockSpeed', 'maxClockSpeed');
-		createRangeSlider($('#memoryRange'), 'Memory Size', 'memorySize', GetMinMax(data, 'memorySize'), 1.0, CONFIG.getGraphicsCards, ajaxParams, 'minMemory', 'maxMemory');
+
+		var filterHelper = new FilterList(CONFIG.getGraphicsCards, ajaxParams);
+		filterHelper.addRadioSelect($('#manufacturerSelect'), 'Manufacturer', 'manufacturer', GetUnique(data, 'manufacturer'));
+		filterHelper.addRadioSelect($('#gpuChipsetSelect'),   'GPU Chipsets', 'gpuChipset',   GetUnique(data, 'gpuChipset'));
+		filterHelper.addRadioSelect($('#memoryTypeSelect'),   'Memory Type',  'memoryType',   GetUnique(data, 'memoryType'));
+		filterHelper.addRangeSlider($('#clockSpeedRange'), 'Clock Speed', 'clockSpeed', GetMinMax(data, 'clockSpeed'), 0.1, 'minClockSpeed', 'maxClockSpeed');
+		filterHelper.addRangeSlider($('#memoryRange'), 'Memory Size', 'memorySize', GetMinMax(data, 'memorySize'), 1.0, 'minMemory', 'maxMemory');
 	});
 });
 

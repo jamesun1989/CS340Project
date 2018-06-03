@@ -6,13 +6,13 @@ function dynamicPartLink(td, cellData, rowData, row, col)
 	$.each(rowData, function(index, value)
 	{
 		if(myIndex == 0)
-			link += `${index}=${value}`;
+			link += index + '=' + value;
 		else
-			link += `&${index}=${value}`;
+			link += '&' + index + '=' + value;
 		myIndex++;
 	});
 
-	$(td).html(`<a href='${link}'>${rowData.name}</a>`);
+	$(td).html('<a href="'+link+'">'+rowData.name+'</a>');
 }
 
 function GetUnique(inputArray, property)
@@ -49,15 +49,15 @@ function GetMinMax(inputArray, property)
 
 function loadAjaxData(endPoint, endPointParams)
 {
-	var ajaxUrl = `${endPoint}?`;
+	var ajaxUrl = endPoint + '?';
 	var myIndex = 0;
 
 	$.each(endPointParams, function(index, value)
 	{
 		if(myIndex == 0)
-			ajaxUrl += `${index}=${value}`;
+			ajaxUrl += index + '=' + value;
 		else
-			ajaxUrl += `&${index}=${value}`;
+			ajaxUrl += '&' + index + '=' + value;
 		myIndex++;
 	});
 
@@ -74,50 +74,77 @@ function loadAjaxData(endPoint, endPointParams)
 	});
 }
 
-function createRadioSelect(appendTo, title, searchName, list, endPoint, endPointParams)
+function FilterList(endPoint, endPointParams)
 {
-	var output = `<p class="lead">${title}</p><div class="radio"><label><input type="radio" name=${searchName} value="ALL" checked="">ALL</label></div>`;
-	$.each(list, function()
-	{
-		output += `<div class="radio"><label class="radioSelecter"><input type="radio" name=${searchName} value="${this}">${this}</label></div>`;
-	});
-	appendTo.append(output);
+	this.endPoint = endPoint;
+	this.endPointParams = endPointParams;
 
-	$(`input[name="${searchName}"]`).click(function()
+	this.addRadioSelect = function(appendTo, title, searchName, list)
 	{
-		if(this.value == 'ALL')
-			endPointParams[searchName] = '';
-		else
+		this.addRadioSelectWithDisplay(appendTo, title, searchName, list, list);
+	};
+
+	this.addRadioSelectWithDisplay = function(appendTo, title, searchName, list, displayList)
+	{
+		var output = '<p class="lead">'+title+'</p>' +
+		             '<div class="radio">' +
+		             	'<label>' +
+		             		'<input type="radio" name="'+searchName+'" value="" checked="">' +
+		             		'ALL' +
+		             	'</label>' +
+		             '</div>';
+
+		$.each(list, function(index, value)
+		{
+			if(value !== null)
+			{
+				output += '<div class="radio">' +
+				          	'<label class="radioSelecter">' +
+				          		'<input type="radio" name="'+searchName+'" value="'+value+'">' +
+				          		displayList[index] +
+				          	'</label>' +
+				          '</div>';
+			}
+		});
+		appendTo.append(output);
+
+		$('input[name="'+searchName+'"]').click(function()
+		{
 			endPointParams[searchName] = this.value;
 
-		loadAjaxData(endPoint, endPointParams);
-	});
-}
+			loadAjaxData(endPoint, endPointParams);
+		});
+	};
 
-function createRangeSlider(appendTo, title, searchName, values, step, endPoint, endPointParams, endPointName1, endPointName2)
-{
-	endPointParams[endPointName1] = values[0];
-	endPointParams[endPointName2] = values[1];
-
-	var output = `<p class="lead">${title}</p><div class="range"><input name="${searchName}" class="slider" type="text" data-slider-value="[0,0]"/></div>`;
-	appendTo.append(output);
-
-	$(`input[name="${searchName}"]`).slider(
+	this.addRangeSlider = function(appendTo, title, searchName, values, step, endPointName1, endPointName2)
 	{
-		min: values[0],
-		max: values[1],
-		step: step,
-		value: values,
-		tooltip: 'show',
-  		tooltip_split: true,
-  		tooltip_position: 'top'
-	}).on('slideStop', function()
-	{
-		var currentValues = this.value.split(',');
-		endPointParams[endPointName1] = currentValues[0];
-		endPointParams[endPointName2] = currentValues[1];
+		endPointParams[endPointName1] = values[0];
+		endPointParams[endPointName2] = values[1];
 
-		loadAjaxData(endPoint, endPointParams);
-	});
+		var output = '<p class="lead">'+title+'</p>' +
+		             '<div class="range">' +
+		             	'<input name="'+searchName+'" class="slider" type="text" data-slider-value="[0,0]">' +
+		             '</div>';
+
+		appendTo.append(output);
+
+		$('input[name="'+searchName+'"]').slider(
+		{
+			min: values[0],
+			max: values[1],
+			step: step,
+			value: values,
+			tooltip: 'show',
+	  		tooltip_split: true,
+	  		tooltip_position: 'top'
+		}).on('slideStop', function()
+		{
+			var currentValues = this.value.split(',');
+			endPointParams[endPointName1] = currentValues[0];
+			endPointParams[endPointName2] = currentValues[1];
+
+			loadAjaxData(endPoint, endPointParams);
+		});
+	};
 }
 

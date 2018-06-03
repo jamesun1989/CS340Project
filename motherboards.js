@@ -1,11 +1,12 @@
 var ajaxParams =
 {
 	manufacturer: '',
+	socket: '',
 	formFactor: '',
-	isSSD: 1,
-	isHDD: 1,
-	minSize: 0,
-	maxSize: 0,
+	minSlots: 0,
+	maxSlots: 0,
+	minRAM: 0.0,
+	maxRAM: 0.0
 };
 
 $(document).ready(function()
@@ -16,10 +17,10 @@ $(document).ready(function()
 		[
 			{ 'data': 'name'},
 			{ 'data': 'manufacturer'},
-			{ 'data': 'series'},
-			{ 'data': 'size'},
+			{ 'data': 'socket'},
 			{ 'data': 'formFactor'},
-			{ 'data': 'ssd'}
+			{ 'data': 'ramSlots'},
+			{ 'data': 'maxRam'}
 		],
 		'columnDefs':
 		[
@@ -35,7 +36,7 @@ $(document).ready(function()
 	$.ajax(
 	{
 		method: "GET",
-		url: CONFIG.getStorage,
+		url: CONFIG.getMotherboards,
 		dataType: "json"
 	})
 	.done(function(data)
@@ -43,12 +44,12 @@ $(document).ready(function()
 		$('#partTable').DataTable().clear();
 		$('#partTable').DataTable().rows.add(data).draw();
 
-		var filterHelper = new FilterList(CONFIG.getStorage, ajaxParams);
+		var filterHelper = new FilterList(CONFIG.getMotherboards, ajaxParams);
 		filterHelper.addRadioSelect($('#manufacturerSelect'), 'Manufacturer', 'manufacturer', GetUnique(data, 'manufacturer'));
+		filterHelper.addRadioSelect($('#socketSelect'),       'Socket',       'socket',       GetUnique(data, 'socket'));
 		filterHelper.addRadioSelect($('#formFactorSelect'),   'Form Factor',  'formFactor',   GetUnique(data, 'formFactor'));
-		filterHelper.addRadioSelect($('#ssdSelect'),          'SSD',          'isSSD',        [0, 1]);
-		filterHelper.addRadioSelect($('#hddSelect'),          'HDD',          'isHDD',        [0, 1]);
-		filterHelper.addRangeSlider($('#sizeRange'), 'Size', 'size', GetMinMax(data, 'size'), 1, 'minSize', 'maxSize');
+		filterHelper.addRangeSlider($('#ramSlotsRange'), 'RAM Slots', 'ramSlots', GetMinMax(data, 'ramSlots'), 1, 'minSlots', 'maxSlots');
+		filterHelper.addRangeSlider($('#maxRamRange'), 'Max RAM', 'maxRam', GetMinMax(data, 'maxRam'), 0.1, 'minRAM', 'maxRAM');
 	});
 });
 

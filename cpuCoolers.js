@@ -40,10 +40,12 @@ $(document).ready(function()
 	{
 		$('#partTable').DataTable().clear();
 		$('#partTable').DataTable().rows.add(data).draw();
-		createRadioSelect($('#manufacturerSelect'), 'Manufacturer',  'manufacturer', GetUnique(data, 'manufacturer'), CONFIG.getCPUCoolers, ajaxParams);
-		createRadioSelect($('#isAirSelect'),        'Air Cooled',    'isAir',        [0, 1],                          CONFIG.getCPUCoolers, ajaxParams);
-		createRadioSelect($('#isLiquidSelect'),     'Liquid Cooled', 'isLiquid',     [0, 1],                          CONFIG.getCPUCoolers, ajaxParams);
-		createRangeSlider($('#heightRange'), 'Height', 'height', GetMinMax(data, 'height'), 1, CONFIG.getCPUCoolers, ajaxParams, 'minHeight', 'maxHeight');
+
+		var filterHelper = new FilterList(CONFIG.getCPUCoolers, ajaxParams);
+		filterHelper.addRadioSelect($('#manufacturerSelect'), 'Manufacturer',  'manufacturer', GetUnique(data, 'manufacturer'));
+		filterHelper.addRadioSelect($('#isAirSelect'),        'Air Cooled',    'isAir',        [0, 1]);
+		filterHelper.addRadioSelect($('#isLiquidSelect'),     'Liquid Cooled', 'isLiquid',     [0, 1]);
+		filterHelper.addRangeSlider($('#heightRange'), 'Height', 'height', GetMinMax(data, 'height'), 1, 'minHeight', 'maxHeight');
 	});
 });
 

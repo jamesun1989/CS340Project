@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en">
 
 <head>
 
@@ -24,12 +25,40 @@
 
     <div class="container">
         <?php include '_nav.html'; ?>
-        <h2>Please Sign-in</h2>
+        <div class="well">
+          <p class="lead">Please Sign-In</p>
+        </div>
+        <br>
         <form id="loginform" class="jumbotron" >
             Username:<br> <input type="email" name="username"> <br>
             Password:<br> <input type="password" name="password"><br>
             <input type="submit" value="Submit">
         </form>
+        <!--<div class="row">
+          <form id="loginform" class="form-horizontal">
+            <div class="form-group">
+              <label for="inputEmail" class="col-lg-2 control-label">Username</label>
+              <div class="col-lg-4">
+                <input type="email" class="form-control" name="username">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+                <div class="col-lg-4">
+                  <input type="password" class="form-control" name="password">
+                </div>
+            </div>
+            <div class="form-group">
+              <div class="col-lg-offset-2 col-lg-10">
+                <button type="submit" class="btn btn-primary">Sign In</button>
+              </div>
+            </div>
+          </form>
+        </div>-->
+
+        <br>
+        <br>
+        <hr>
 
         <footer>
 			<p>&copy; 2018 CS340 Group 5 members: Trevor Hammock, Sung Kim and Xiaoli Sun.</p>

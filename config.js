@@ -12,5 +12,6 @@ var CONFIG =
     getMotherboards: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/getMotherboards",
     getPowerSupplies: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/getPowerSupplies",
     getRAM: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/getRAM",
-    getStorage: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/getStorage"
+    getStorage: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/getStorage",
+    getUserBuild: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/getUserBuild"
 };

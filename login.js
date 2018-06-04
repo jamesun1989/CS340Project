@@ -1,6 +1,10 @@
 $(document).ready(function()
 {
 
+    if(localStorage.getItem("loginRedirect") === null){
+        localStorage.setItem("loginRedirect", "main.php");
+    }
+
     $('#loginform').submit(function(event)
     {
         event.preventDefault();
@@ -13,16 +17,18 @@ $(document).ready(function()
         });
 
         $.ajax(
-            {
-                method: "POST",
-                url: CONFIG.refreshToken,
-                data: JSON.stringify(postData),
-                content: "application/json",
-                dataType: "json"
-            })
-            .done(function(data)
-            {
-                console.log(data);
+        {
+            method: "POST",
+            url: CONFIG.refreshToken,
+            data: JSON.stringify(postData),
+            content: "application/json",
+            dataType: "json"
+        })
+        .done(function(data)
+        {
+            localStorage.setItem("refreshToken", data.refreshToken);
+            var loginRedirect = localStorage.getItem("loginRedirect");
+            window.location.replace(loginRedirect);
         });
     });
 });

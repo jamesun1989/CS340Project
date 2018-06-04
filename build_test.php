@@ -15,61 +15,30 @@
   <script type="text/javascript" src="Bootstrap3/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="DataTables/datatables.min.js"></script>
   <script type="text/javascript" src="config.js"></script>
+  <script type="text/javascript" src="authorizedAjax.js"></script>
 </head>
 
 <body>
 	<div id=test></div>
 <script>
-	function GetAuthToken(){
-		var authData = {
-			refreshToken: localStorage.getItem("refreshToken")
-		};
-		$.ajax(
-		{
-			method: "POST",
-			url: CONFIG.authToken,
-			data: JSON.stringify(authData),
-			content: "application/json",
-			dataType: "json"
-		})
-		.done(function(data){
-			localStorage.setItem("authToken", data.authToken);
-		})
-		.fail(function(jqXHR){
-			if(jqXHR.status == 403 || jqXHR.status == 401){
-				localStorage.setItem("loginRedirect", "build_test.php");
-				window.location.replace("login.php");
-			}
-		});
-	}
-
-	$(document).ready(function()
+$(document).ready(function()
+{
+	var ajaxProperties =
 	{
-		if(localStorage.getItem("authToken") === null)
-		{
-			GetAuthToken();
-		}
-		
-		$.ajax(
-		{
-			method: "GET",
-			url: CONFIG.getUserBuild+"?buildID=4&"+"authToken="+localStorage.getItem("authToken"),
-			content: "application/json",
-			dataType: "json"
-		})
-		.done(function(data)
-		{
-			console.log(data);
-		})
-		.fail(function(jqXHR, textStatus, errorThrown)
-		{
-			console.log(jqXHR.status);
-			if(jqXHR.status == 403 || jqXHR.status == 401){
-				GetAuthToken();
-				window.location.replace("build_test.php");
-			}
-		});		
-	});
+		method: "GET",
+		url: CONFIG.getUserBuild + "?buildID=4",
+		content: "application/json",
+		dataType: "json"
+	};
+
+	var doneCallback = function(data)
+	{
+		console.log(data);
+	};
+
+	var request = new AuthorizedAjax("build_test.php", ajaxProperties, doneCallback);
+	request.start();
+});
 </script>
 </body>
 </html>

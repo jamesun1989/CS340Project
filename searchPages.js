@@ -14,6 +14,9 @@ function dynamicPartLink(keys, keyFormatters)
 			else
 				data = rowData[key];
 
+			if(data === null)
+				data = '';
+
 			var entry = key + '=' + data;
 
 			if(index == 0)

@@ -11,7 +11,7 @@ function formattedEightyPlus(data)
 {
 	if(data !== null)
 		return '80+ '+data;
-	return '';
+	return data;
 }
 
 function formattedWattage(data)

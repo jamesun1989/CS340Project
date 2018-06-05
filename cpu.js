@@ -11,6 +11,14 @@ var ajaxParams =
 	maxClockSpeed: 0.0
 };
 
+function formattedClockSpeed(data)
+{
+	var clockSpeed = Number(data);
+	if(clockSpeed < 1.0)
+		return (clockSpeed*1000) + 'MHz';
+	return clockSpeed + 'GHz';
+}
+
 $(document).ready(function()
 {
 	$('#partTable').DataTable(
@@ -29,6 +37,10 @@ $(document).ready(function()
 			{
 				"targets": 0,
 				"createdCell": dynamicPartLink
+			},
+			{
+				"targets": 4,
+				"render": formattedClockSpeed
 			}
 		],
 		"deferRender": true,
@@ -52,7 +64,7 @@ $(document).ready(function()
 		filterHelper.addRadioSelect($('#familySelect'),       'Family',       'family',       GetUnique(data, 'family'));
 		filterHelper.addRangeSlider($('#coresRange'), 'Core Count', 'cores', GetMinMax(data, 'cores'), 1, 'minCores', 'maxCores');
 		filterHelper.addRangeSlider($('#threadsRange'), 'Thread Count', 'threads', GetMinMax(data, 'threads'), 1, 'minThreads', 'maxThreads');
-		filterHelper.addRangeSlider($('#clockSpeedRange'), 'Clock Speed', 'clockSpeed', GetMinMax(data, 'clockSpeed'), 0.1, 'minClockSpeed', 'maxClockSpeed');
+		filterHelper.addFormattedRangeSlider($('#clockSpeedRange'), 'Clock Speed', 'clockSpeed', GetMinMax(data, 'clockSpeed'), 0.1, 'minClockSpeed', 'maxClockSpeed', formattedClockSpeed);
 	});
 });
 

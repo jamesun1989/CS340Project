@@ -7,6 +7,11 @@ var ajaxParams =
 	maxWattage: 0,
 };
 
+function formattedWattage(data)
+{
+	return data + 'W';
+}
+
 $(document).ready(function()
 {
 	$('#partTable').DataTable(
@@ -37,10 +42,7 @@ $(document).ready(function()
 			},
 			{
 				"targets": 4,
-				"render": function(data, type, row, meta)
-				{
-					return data+'W';
-				}
+				"render": formattedWattage
 			}
 		],
 		"deferRender": true,
@@ -70,7 +72,7 @@ $(document).ready(function()
 		filterHelper.addRadioSelect($('#manufacturerSelect'), 'Manufacturer', 'manufacturer', GetUnique(data, 'manufacturer'));
 		filterHelper.addRadioSelectWithDisplay($('#eightyPlusSelect'), 'Efficiency', 'eightyPlus', efficiencyList, efficiencyDisplayList);
 		filterHelper.addRadioSelect($('#modularSelect'),      'Modular',      'modular',      GetUnique(data, 'modular'));
-		filterHelper.addRangeSlider($('#wattageRange'), 'Wattage', 'wattage', GetMinMax(data, 'wattage'), 1, 'minWattage', 'maxWattage');
+		filterHelper.addFormattedRangeSlider($('#wattageRange'), 'Wattage', 'wattage', GetMinMax(data, 'wattage'), 1, 'minWattage', 'maxWattage', formattedWattage);
 	});
 });
 

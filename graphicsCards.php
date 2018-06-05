@@ -57,13 +57,12 @@
             <table id="partTable" class="table table-bordered" data-effect="fade">
             	<thead>
             		<tr>
-						<th>Name</th>
+						<th width="25%">Name</th>
 						<th>Series</th>
 						<th>Manufacturer</th>
-						<th>GPU Chipset</th>
+						<th>Chipset</th>
 						<th>Clock Speed</th>
-						<th>Memory Capacity</th>
-						<th>Memory Type</th>
+						<th>Memory</th>
 					</tr>
 				</thead>
 				<tfoot>
@@ -71,10 +70,9 @@
 						<th>Name</th>
 						<th>Series</th>
 						<th>Manufacturer</th>
-						<th>GPU Chipset</th>
+						<th>Chipset</th>
 						<th>Clock Speed</th>
-						<th>Memory Capacity</th>
-						<th>Memory Type</th>
+						<th>Memory</th>
 					</tr>
 				</tfoot>
             </table>

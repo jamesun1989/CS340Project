@@ -10,6 +10,19 @@ var ajaxParams =
 	maxSize: 0.0
 };
 
+function formattedSpeed(data)
+{
+	return data + 'MHz';
+}
+
+function formattedMemory(data)
+{
+	var memorySize = Number(data);
+	if(memorySize < 1.0)
+		return (memorySize*1000) + 'MB';
+	return memorySize + 'GB';
+}
+
 $(document).ready(function()
 {
 	$('#partTable').DataTable(
@@ -28,6 +41,14 @@ $(document).ready(function()
 			{
 				"targets": 0,
 				"createdCell": dynamicPartLink
+			},
+			{
+				"targets": 2,
+				"render": formattedSpeed
+			},
+			{
+				"targets": 5,
+				"render": formattedMemory
 			}
 		],
 		"deferRender": true,
@@ -48,9 +69,9 @@ $(document).ready(function()
 		var filterHelper = new FilterList(CONFIG.getRAM, ajaxParams);
 		filterHelper.addRadioSelect($('#manufacturerSelect'), 'Manufacturer', 'manufacturer', GetUnique(data, 'manufacturer'));
 		filterHelper.addRadioSelect($('#typeSelect'),         'Type',         'type',         GetUnique(data, 'type'));
-		filterHelper.addRangeSlider($('#speedRange'), 'Speed', 'speed', GetMinMax(data, 'speed'), 1.0, 'minSpeed', 'maxSpeed');
+		filterHelper.addFormattedRangeSlider($('#speedRange'), 'Speed', 'speed', GetMinMax(data, 'speed'), 1.0, 'minSpeed', 'maxSpeed', formattedSpeed);
 		filterHelper.addRangeSlider($('#sticksRange'), 'Stick Count', 'sticks', GetMinMax(data, 'sticks'), 1, 'minSticks', 'maxSticks');
-		filterHelper.addRangeSlider($('#sizeRange'), 'Size', 'size', GetMinMax(data, 'size'), 0.1, 'minSize', 'maxSize');
+		filterHelper.addFormattedRangeSlider($('#sizeRange'), 'Size', 'size', GetMinMax(data, 'size'), 0.1, 'minSize', 'maxSize', formattedMemory);
 	});
 });
 

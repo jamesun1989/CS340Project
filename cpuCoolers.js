@@ -7,6 +7,21 @@ var ajaxParams =
 	maxHeight: 0
 };
 
+function formattedHeight(data)
+{
+	var height = Number(data);
+	return height + 'mm';
+}
+
+function formattedBool(data)
+{
+	if(data == '1')
+		return 'Yes';
+	else if(data == '0')
+		return 'No';
+	return 'Err';
+}
+
 $(document).ready(function()
 {
 	$('#partTable').DataTable(
@@ -24,6 +39,14 @@ $(document).ready(function()
 			{
 				"targets": 0,
 				"createdCell": dynamicPartLink
+			},
+			{
+				"targets": 3,
+				"render": formattedHeight
+			},
+			{
+				"targets": 4,
+				"render": formattedBool
 			}
 		],
 		"deferRender": true,
@@ -43,9 +66,9 @@ $(document).ready(function()
 
 		var filterHelper = new FilterList(CONFIG.getCPUCoolers, ajaxParams);
 		filterHelper.addRadioSelect($('#manufacturerSelect'), 'Manufacturer',  'manufacturer', GetUnique(data, 'manufacturer'));
-		filterHelper.addRadioSelect($('#isAirSelect'),        'Air Cooled',    'isAir',        [0, 1]);
-		filterHelper.addRadioSelect($('#isLiquidSelect'),     'Liquid Cooled', 'isLiquid',     [0, 1]);
-		filterHelper.addRangeSlider($('#heightRange'), 'Height', 'height', GetMinMax(data, 'height'), 1, 'minHeight', 'maxHeight');
+		filterHelper.addRadioSelectWithDisplay($('#isAirSelect'), 'Air Cooled', 'isAir', [0], ['No']);
+		filterHelper.addRadioSelectWithDisplay($('#isLiquidSelect'), 'Liquid Cooled', 'isLiquid', [0], ['No']);
+		filterHelper.addFormattedRangeSlider($('#heightRange'), 'Height', 'height', GetMinMax(data, 'height'), 1, 'minHeight', 'maxHeight', formattedHeight);
 	});
 });
 

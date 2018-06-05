@@ -31,12 +31,15 @@
 </div>
 
 <div>
-<table id="buildList" class = "table table-bordered" data-effect = "fade"
-    <tr>
-        <th>Build ID</th>
-        <th>Name</th>
-        <th>Shared</th>
-    </tr>
+<table id="buildList" class="table table-bordered" data-effect="fade">
+	<thead>
+		<tr>
+		    <th>Name</th>
+		    <th>Shared</th>
+		    <th>Maybe Build Operations</th>
+		</tr>
+    </thead>
+    <tbody></tbody>
 </table>
 </div>
 

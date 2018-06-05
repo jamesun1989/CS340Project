@@ -37,22 +37,22 @@
 		<div class="row">
 			<div class="col-sm-3 col-lg-3">
 				<div class="row">
-					<div class="col-sm-3 col-lg-3" id="manufacturerSelect"></div>
+					<div class="col-sm-11 col-lg-11" id="manufacturerSelect"></div>
 				</div>
 				<div class="row">
-					<div class="col-sm-3 col-lg-3" id="socketSelect"></div>
+					<div class="col-sm-11 col-lg-11" id="socketSelect"></div>
 				</div>
 				<div class="row">
-					<div class="col-sm-3 col-lg-3" id="familySelect"></div>
+					<div class="col-sm-11 col-lg-11" id="familySelect"></div>
 				</div>
 				<div class="row">
-					<div class="col-sm-3 col-lg-3" id="coresRange"></div>
+					<div class="col-sm-10 col-lg-10" id="coresRange"></div>
 				</div>
 				<div class="row">
-					<div class="col-sm-3 col-lg-3" id="threadsRange"></div>
+					<div class="col-sm-10 col-lg-10" id="threadsRange"></div>
 				</div>
 				<div class="row">
-					<div class="col-sm-3 col-lg-3" id="clockSpeedRange"></div>
+					<div class="col-sm-10 col-lg-10" id="clockSpeedRange"></div>
 				</div>
 			</div>
 			<div class="col-sm-9 col-lg-9">

@@ -37,16 +37,16 @@
 		<div class="row">
 			<div class="col-sm-3 col-lg-3">
 				<div class="row">
-					<div class="col-sm-3 col-lg-3" id="manufacturerSelect"></div>
+					<div class="col-sm-11 col-lg-11" id="manufacturerSelect"></div>
 				</div>
 				<div class="row">
-					<div class="col-sm-3 col-lg-3" id="eightyPlusSelect"></div>
+					<div class="col-sm-11 col-lg-11" id="eightyPlusSelect"></div>
 				</div>
 				<div class="row">
-					<div class="col-sm-3 col-lg-3" id="modularSelect"></div>
+					<div class="col-sm-11 col-lg-11" id="modularSelect"></div>
 				</div>
 				<div class="row">
-					<div class="col-sm-3 col-lg-3" id="wattageRange"></div>
+					<div class="col-sm-10 col-lg-10" id="wattageRange"></div>
 				</div>
 			</div>
 			<div class="col-sm-9 col-lg-9">

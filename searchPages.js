@@ -1,15 +1,18 @@
 function dynamicPartLink(td, cellData, rowData, row, col)
 {
 	var link = 'partSpecifications.php?';
-	var myIndex = 0;
 
-	$.each(rowData, function(index, value)
+	Object.keys(rowData).forEach(function(key, index)
 	{
-		if(myIndex == 0)
-			link += index + '=' + value;
-		else
-			link += '&' + index + '=' + value;
-		myIndex++;
+		var entry = key + '=' + rowData[key];
+
+		if(index == 0)
+		{
+			link += entry;
+			return;
+		}
+
+		link += '&' + entry;
 	});
 
 	$(td).html('<a href="'+link+'">'+rowData.name+'</a>');
@@ -87,28 +90,19 @@ function FilterList(endPoint, endPointParams)
 	this.addRadioSelectWithDisplay = function(appendTo, title, searchName, list, displayList)
 	{
 		var output = '<p class="lead">'+title+'</p>' +
-		             '<div class="radio">' +
-		             	'<label>' +
-		             		'<input type="radio" name="'+searchName+'" value="" checked="">' +
-		             		'ALL' +
-		             	'</label>' +
-		             '</div>';
+		             '<select class="form-control" name="'+searchName+'">' +
+		             	'<option value="">ALL</option>';
 
 		$.each(list, function(index, value)
 		{
 			if(value !== null)
-			{
-				output += '<div class="radio">' +
-				          	'<label class="radioSelecter">' +
-				          		'<input type="radio" name="'+searchName+'" value="'+value+'">' +
-				          		displayList[index] +
-				          	'</label>' +
-				          '</div>';
-			}
+				output += '<option value="'+value+'">'+displayList[index]+'</option>';
 		});
+
+		output += '</select>';
 		appendTo.append(output);
 
-		$('input[name="'+searchName+'"]').click(function()
+		$('select[name="'+searchName+'"]').change(function()
 		{
 			endPointParams[searchName] = this.value;
 

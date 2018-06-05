@@ -37,19 +37,19 @@
         <div class="row">
           <div class="col-sm-3 col-lg-3">
           		<div class="row">
-					<div class="col-sm-3 col-lg-3" id="manufacturerSelect"></div>
+					<div class="col-sm-11 col-lg-11" id="manufacturerSelect"></div>
 				</div>
 				<div class="row">
-					<div class="col-sm-3 col-lg-3" id="gpuChipsetSelect"></div>
+					<div class="col-sm-11 col-lg-11" id="gpuChipsetSelect"></div>
 				</div>
 				<div class="row">
-					<div class="col-sm-3 col-lg-3" id="memoryTypeSelect"></div>
+					<div class="col-sm-11 col-lg-11" id="memoryTypeSelect"></div>
 				</div>
 				<div class="row">
-					<div class="col-sm-3 col-lg-3" id="clockSpeedRange"></div>
+					<div class="col-sm-10 col-lg-10" id="clockSpeedRange"></div>
 				</div>
 				<div class="row">
-					<div class="col-sm-3 col-lg-3" id="memoryRange"></div>
+					<div class="col-sm-10 col-lg-10" id="memoryRange"></div>
 				</div>
           </div>
           <div class="col-sm-9 col-lg-9">

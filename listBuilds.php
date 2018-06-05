@@ -36,7 +36,21 @@
         <th>Build ID</th>
         <th>Name</th>
         <th>Shared</th>
-    </tr>
+	</tr>
+	<thead>
+		<tr>
+			<th>Build ID</th>
+			<th>Name</th>
+			<th>Shared</th>
+		</tr>
+	</thead>
+	<tfoot>
+		<tr>
+			<th>Build ID</th>
+			<th>Name</th>
+			<th>Shared</th>
+		</tr>
+	</tfoot>
 </table>
 </div>
 

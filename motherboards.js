@@ -9,6 +9,14 @@ var ajaxParams =
 	maxRAM: 0.0
 };
 
+function formattedMemory(data)
+{
+	var memorySize = Number(data);
+	if(memorySize < 1.0)
+		return (memorySize*1000) + 'MB';
+	return memorySize + 'GB';
+}
+
 $(document).ready(function()
 {
 	$('#partTable').DataTable(
@@ -27,6 +35,10 @@ $(document).ready(function()
 			{
 				"targets": 0,
 				"createdCell": dynamicPartLink
+			},
+			{
+				"targets": 5,
+				"render": formattedMemory
 			}
 		],
 		"deferRender": true,
@@ -49,7 +61,7 @@ $(document).ready(function()
 		filterHelper.addRadioSelect($('#socketSelect'),       'Socket',       'socket',       GetUnique(data, 'socket'));
 		filterHelper.addRadioSelect($('#formFactorSelect'),   'Form Factor',  'formFactor',   GetUnique(data, 'formFactor'));
 		filterHelper.addRangeSlider($('#ramSlotsRange'), 'RAM Slots', 'ramSlots', GetMinMax(data, 'ramSlots'), 1, 'minSlots', 'maxSlots');
-		filterHelper.addRangeSlider($('#maxRamRange'), 'Max RAM', 'maxRam', GetMinMax(data, 'maxRam'), 0.1, 'minRAM', 'maxRAM');
+		filterHelper.addFormattedRangeSlider($('#maxRamRange'), 'Max RAM', 'maxRam', GetMinMax(data, 'maxRam'), 0.1, 'minRAM', 'maxRAM', formattedMemory);
 	});
 });
 

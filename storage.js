@@ -8,6 +8,23 @@ var ajaxParams =
 	maxSize: 0,
 };
 
+function formattedSize(data)
+{
+	var size = Number(data);
+	if(size >= 1000)
+		return (size/1000).toFixed(0) + 'TB';
+	return size + 'GB';
+}
+
+function formattedBool(data)
+{
+	if(data == '1')
+		return 'Yes';
+	else if(data == '0')
+		return 'No';
+	return 'Err';
+}
+
 $(document).ready(function()
 {
 	$('#partTable').DataTable(
@@ -26,6 +43,14 @@ $(document).ready(function()
 			{
 				"targets": 0,
 				"createdCell": dynamicPartLink
+			},
+			{
+				"targets": 3,
+				"render": formattedSize
+			},
+			{
+				"targets": 5,
+				"render": formattedBool
 			}
 		],
 		"deferRender": true,
@@ -46,9 +71,9 @@ $(document).ready(function()
 		var filterHelper = new FilterList(CONFIG.getStorage, ajaxParams);
 		filterHelper.addRadioSelect($('#manufacturerSelect'), 'Manufacturer', 'manufacturer', GetUnique(data, 'manufacturer'));
 		filterHelper.addRadioSelect($('#formFactorSelect'),   'Form Factor',  'formFactor',   GetUnique(data, 'formFactor'));
-		filterHelper.addRadioSelect($('#ssdSelect'),          'SSD',          'isSSD',        [0, 1]);
-		filterHelper.addRadioSelect($('#hddSelect'),          'HDD',          'isHDD',        [0, 1]);
-		filterHelper.addRangeSlider($('#sizeRange'), 'Size', 'size', GetMinMax(data, 'size'), 1, 'minSize', 'maxSize');
+		filterHelper.addRadioSelectWithDisplay($('#ssdSelect'), 'SSD', 'isSSD', [0], ['No']);
+		filterHelper.addRadioSelectWithDisplay($('#hddSelect'), 'HDD', 'isHDD', [0], ['No']);
+		filterHelper.addFormattedRangeSlider($('#sizeRange'), 'Size', 'size', GetMinMax(data, 'size'), 1, 'minSize', 'maxSize', formattedSize);
 	});
 });
 

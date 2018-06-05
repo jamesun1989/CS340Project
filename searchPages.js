@@ -118,6 +118,11 @@ function FilterList(endPoint, endPointParams)
 
 	this.addRangeSlider = function(appendTo, title, searchName, values, step, endPointName1, endPointName2)
 	{
+		this.addFormattedRangeSlider(appendTo, title, searchName, values, step, endPointName1, endPointName2, null);
+	};
+
+	this.addFormattedRangeSlider = function(appendTo, title, searchName, values, step, endPointName1, endPointName2, formatter)
+	{
 		endPointParams[endPointName1] = values[0];
 		endPointParams[endPointName2] = values[1];
 
@@ -136,7 +141,8 @@ function FilterList(endPoint, endPointParams)
 			value: values,
 			tooltip: 'show',
 	  		tooltip_split: true,
-	  		tooltip_position: 'top'
+	  		tooltip_position: 'top',
+	  		formatter: formatter
 		}).on('slideStop', function()
 		{
 			var currentValues = this.value.split(',');

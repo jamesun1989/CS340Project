@@ -57,7 +57,7 @@
 				<table id="partTable" class="table table-bordered" data-effect="fade">
 					<thead>
 						<tr>
-							<th>Name</th>
+							<th width="30%">Name</th>
 							<th>Manufacturer</th>
 							<th>Socket</th>
 							<th>Form Factor</th>

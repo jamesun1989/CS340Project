@@ -23,55 +23,47 @@
 </head>
 
 <body>
-<div class="container">
+	<div class="container">
 	<?php include '_nav.html'; ?>
 
-<div class="well">
-	<p class="lead">Choose a Computer Case</p>
-</div>
+	<div class="well">
+		<p class="lead">Personal Information</p>
+	</div>
 
-<br>
+	<div class="col-sm-10 col-lg-10">
+		<div class="col-sm-5 col-lg-15">
+			<table id="" class="table table-bordered" data-effect="fade">
+				<thead>
+	                <tr>
+	                	<th>Username</th>
+	                </tr>
+	            </thead>
+	            <tfoot>
+	            	<tr>
+	                	<th>Username</th>
+	                </tr>
+	            </tfoot>
+	        </table>
+	    </div>
 
-<div class="row">
-	<div class="col-sm-12 col-lg-12">
-		<div class="row">
-			<div class="col-sm-3 col-lg-3">
-				<div class="row">
-					<div class="col-sm-3 col-lg-3" id="manufacturerSelect"></div>
+		<div class="col-sm-10 col-lg-10" data-effect="slide-right">
+			<hr>
+			<p class="lead text-muted">Update personal information</p>
+			<br>
+			<form class="form-horizontal">
+				<div class="form-group">
+					<label for="username" class="col-lg-2 control-label">Username</label>
+					<div class="col-lg-4">
+						<input type="text" class="form-control" id="usernmae" placeholder="user name">
+					</div>
 				</div>
-				<div class="row">
-					<div class="col-sm-3 col-lg-3" id="typeSelect"></div>
+				<div class="form-group">
+					<div class="col-lg-offset-2 col-lg-10">
+						<button type="submit" class="btn btn-primary">Update</button>
+					</div>
 				</div>
-				<div class="row">
-					<div class="col-sm-3 col-lg-3" id="cpuCoolerClearanceRange"></div>
-				</div>
-			</div>
-			<div class="col-sm-9 col-lg-9">
-				<p class="lead text-muted">Parts</p>
-				<table id="partTable" class="table table-bordered" data-effect="fade">
-					<thead>
-						<tr>
-							<th width="30%">Name</th>
-							<th>Model</th>
-							<th>Manufacturer</th>
-							<th>Type</th>
-						</tr>
-					</thead>
-					<tfoot>
-						<tr>
-							<th>Name</th>
-							<th>Model</th>
-							<th>Manufacturer</th>
-							<th>Type</th>
-						</tr>
-					</tfoot>
-				</table>
-			</div>
+			</form>
 		</div>
 	</div>
-</div>
-
-</div>
 </body>
-
 </html>

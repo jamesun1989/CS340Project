@@ -36,7 +36,7 @@ $(document).ready(function()
 		[
 			{
 				"targets": 0,
-				"createdCell": dynamicPartLink
+				"createdCell": dynamicPartLink(['clockSpeed'], [formattedClockSpeed])
 			},
 			{
 				"targets": 4,

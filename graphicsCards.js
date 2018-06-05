@@ -25,6 +25,11 @@ function formattedMemory(data)
 	return memorySize + 'GB';
 }
 
+function formattedLength(data)
+{
+	return data + 'mm';
+}
+
 $(document).ready(function()
 {
 	$('#partTable').DataTable(
@@ -42,7 +47,7 @@ $(document).ready(function()
 		[
 			{
 				"targets": 0,
-				"createdCell": dynamicPartLink
+				"createdCell": dynamicPartLink(['clockSpeed', 'memorySize', 'length'], [formattedClockSpeed, formattedMemory, formattedLength])
 			},
 			{
 				"targets": 4,

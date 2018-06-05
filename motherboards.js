@@ -34,7 +34,7 @@ $(document).ready(function()
 		[
 			{
 				"targets": 0,
-				"createdCell": dynamicPartLink
+				"createdCell": dynamicPartLink(['maxRam'], [formattedMemory])
 			},
 			{
 				"targets": 5,

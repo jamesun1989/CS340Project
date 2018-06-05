@@ -25,6 +25,13 @@ function formattedBool(data)
 	return 'Err';
 }
 
+function formattedRPM(data)
+{
+	if(data === null)
+		return "Not Applicable";
+	return data;
+}
+
 $(document).ready(function()
 {
 	$('#partTable').DataTable(
@@ -42,7 +49,7 @@ $(document).ready(function()
 		[
 			{
 				"targets": 0,
-				"createdCell": dynamicPartLink
+				"createdCell": dynamicPartLink(['size', 'ssd', 'hdd', 'RPM'], [formattedSize, formattedBool, formattedBool, formattedRPM])
 			},
 			{
 				"targets": 3,

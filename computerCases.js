@@ -27,7 +27,7 @@ $(document).ready(function()
 		[
 			{
 				"targets": 0,
-				"createdCell": dynamicPartLink
+				"createdCell": dynamicPartLink(['cpuCoolerClearance'], [formattedHeight])
 			}
 		],
 		"deferRender": true,

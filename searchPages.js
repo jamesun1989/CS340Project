@@ -1,21 +1,32 @@
-function dynamicPartLink(td, cellData, rowData, row, col)
+function dynamicPartLink(keys, keyFormatters)
 {
-	var link = 'partSpecifications.php?';
-
-	Object.keys(rowData).forEach(function(key, index)
+	return function(td, cellData, rowData, row, col)
 	{
-		var entry = key + '=' + rowData[key];
+		var link = 'partSpecifications.php?';
 
-		if(index == 0)
+		Object.keys(rowData).forEach(function(key, index)
 		{
-			link += entry;
-			return;
-		}
+			let data;
 
-		link += '&' + entry;
-	});
+			let keyPos = $.inArray(key, keys);
+			if(keyPos > -1)
+				data = keyFormatters[keyPos](rowData[key]);
+			else
+				data = rowData[key];
 
-	$(td).html('<a href="'+link+'">'+rowData.name+'</a>');
+			var entry = key + '=' + data;
+
+			if(index == 0)
+			{
+				link += entry;
+				return;
+			}
+
+			link += '&' + entry;
+		});
+
+		$(td).html('<a href="'+link+'">'+rowData.name+'</a>');
+	}
 }
 
 function GetUnique(inputArray, property)

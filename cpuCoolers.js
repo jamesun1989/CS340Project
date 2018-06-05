@@ -38,7 +38,7 @@ $(document).ready(function()
 		[
 			{
 				"targets": 0,
-				"createdCell": dynamicPartLink
+				"createdCell": dynamicPartLink(['height', 'liquid'], [formattedHeight, formattedBool])
 			},
 			{
 				"targets": 3,

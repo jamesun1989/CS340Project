@@ -7,6 +7,13 @@ var ajaxParams =
 	maxWattage: 0,
 };
 
+function formattedEightyPlus(data)
+{
+	if(data !== null)
+		return '80+ '+data;
+	return '';
+}
+
 function formattedWattage(data)
 {
 	return data + 'W';
@@ -29,16 +36,11 @@ $(document).ready(function()
 		[
 			{
 				"targets": 0,
-				"createdCell": dynamicPartLink
+				"createdCell": dynamicPartLink(['eightyPlus', 'wattage'], [formattedEightyPlus, formattedWattage])
 			},
 			{
 				"targets": 3,
-				"render": function(data, type, row, meta)
-				{
-					if(data !== null)
-						return '80+ '+data;
-					return data;
-				}
+				"render": formattedEightyPlus
 			},
 			{
 				"targets": 4,

@@ -37,19 +37,19 @@
 		<div class="row">
 			<div class="col-sm-3 col-lg-3">
 				<div class="row">
-					<div class="col-sm-3 col-lg-3" id="manufacturerSelect"></div>
+					<div class="col-sm-11 col-lg-11" id="manufacturerSelect"></div>
 				</div>
 				<div class="row">
-					<div class="col-sm-3 col-lg-3" id="socketSelect"></div>
+					<div class="col-sm-11 col-lg-11" id="socketSelect"></div>
 				</div>
 				<div class="row">
-					<div class="col-sm-3 col-lg-3" id="formFactorSelect"></div>
+					<div class="col-sm-11 col-lg-11" id="formFactorSelect"></div>
 				</div>
 				<div class="row">
-					<div class="col-sm-3 col-lg-3" id="ramSlotsRange"></div>
+					<div class="col-sm-10 col-lg-10" id="ramSlotsRange"></div>
 				</div>
 				<div class="row">
-					<div class="col-sm-3 col-lg-3" id="maxRamRange"></div>
+					<div class="col-sm-10 col-lg-10" id="maxRamRange"></div>
 				</div>
 			</div>
 			<div class="col-sm-9 col-lg-9">

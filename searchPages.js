@@ -1,18 +1,35 @@
-function dynamicPartLink(td, cellData, rowData, row, col)
+function dynamicPartLink(keys, keyFormatters)
 {
-	var link = 'partSpecifications.php?';
-	var myIndex = 0;
-
-	$.each(rowData, function(index, value)
+	return function(td, cellData, rowData, row, col)
 	{
-		if(myIndex == 0)
-			link += index + '=' + value;
-		else
-			link += '&' + index + '=' + value;
-		myIndex++;
-	});
+		var link = 'partSpecifications.php?';
 
-	$(td).html('<a href="'+link+'">'+rowData.name+'</a>');
+		Object.keys(rowData).forEach(function(key, index)
+		{
+			let data;
+
+			let keyPos = $.inArray(key, keys);
+			if(keyPos > -1)
+				data = keyFormatters[keyPos](rowData[key]);
+			else
+				data = rowData[key];
+
+			if(data === null)
+				data = '';
+
+			var entry = key + '=' + data;
+
+			if(index == 0)
+			{
+				link += entry;
+				return;
+			}
+
+			link += '&' + entry;
+		});
+
+		$(td).html('<a href="'+link+'">'+rowData.name+'</a>');
+	}
 }
 
 function GetUnique(inputArray, property)
@@ -79,36 +96,27 @@ function FilterList(endPoint, endPointParams)
 	this.endPoint = endPoint;
 	this.endPointParams = endPointParams;
 
-	this.addRadioSelect = function(appendTo, title, searchName, list)
+	this.addSelect = function(appendTo, title, searchName, list)
 	{
-		this.addRadioSelectWithDisplay(appendTo, title, searchName, list, list);
+		this.addSelectWithDisplay(appendTo, title, searchName, list, list);
 	};
 
-	this.addRadioSelectWithDisplay = function(appendTo, title, searchName, list, displayList)
+	this.addSelectWithDisplay = function(appendTo, title, searchName, list, displayList)
 	{
 		var output = '<p class="lead">'+title+'</p>' +
-		             '<div class="radio">' +
-		             	'<label>' +
-		             		'<input type="radio" name="'+searchName+'" value="" checked="">' +
-		             		'ALL' +
-		             	'</label>' +
-		             '</div>';
+		             '<select class="form-control" name="'+searchName+'">' +
+		             	'<option value="">ALL</option>';
 
 		$.each(list, function(index, value)
 		{
 			if(value !== null)
-			{
-				output += '<div class="radio">' +
-				          	'<label class="radioSelecter">' +
-				          		'<input type="radio" name="'+searchName+'" value="'+value+'">' +
-				          		displayList[index] +
-				          	'</label>' +
-				          '</div>';
-			}
+				output += '<option value="'+value+'">'+displayList[index]+'</option>';
 		});
+
+		output += '</select>';
 		appendTo.append(output);
 
-		$('input[name="'+searchName+'"]').click(function()
+		$('select[name="'+searchName+'"]').change(function()
 		{
 			endPointParams[searchName] = this.value;
 

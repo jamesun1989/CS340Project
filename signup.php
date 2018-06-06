@@ -20,31 +20,61 @@
 </head>
 
 <body>
-  <div class="container">
-    <?php include '_nav.html'; ?>
-    <div class="well">
-      <p class="lead">Please Sign-Up</p>
-    </div>
-    <br>
+<div class="container">
+	<?php include '_nav.html'; ?>
 
-    <form id="signupform" class="jumbotron" >
-      Username:<br> <input type="email" name="username"> <br>
-      Password:<br> <input type="password" name="password"><br>
-      ConfirmPassword:<br> <input type="password" name="confirmpassword"><br>
-      <input type="submit" value="Submit">
-    </form>
+<div class="well">
+	<p class="lead">Please Sign-Up</p>
+</div>
 
-    <div id="test">
-      
-    </div>
+<br>
 
-    <br>
-    <hr>
-    <br>
+<div class="row">
+	<div class="col-sm-12 col-lg-12">
+		<form id="loginform" class="form-horizontal jumbotron">
+			<div class="form-group">
+				<label for="username" class="col-lg-2 control-label">Username</label>
+				<div class="col-lg-4">
+					<input type="email" class="form-control" name="username">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="password" class="col-lg-2 control-label">Password</label>
+				<div class="col-lg-4">
+					<input type="password" class="form-control" name="password">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="confirmpassword" class="col-lg-2 control-label">Confirm Password</label>
+				<div class="col-lg-4">
+					<input type="password" class="form-control" name="confirmpassword">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-lg-offset-2 col-lg-10">
+					<button type="submit" class="btn btn-primary">Sign In</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
 
-    <footer>
-      <p>&copy; 2018 CS340 Group 5 members: Trevor Hammock, Sung Kim and Xiaoli Sun.</p>
-    </footer>
+<div id="message"></div>
+
+<h3>
+	<strong>Password Requirements</strong>
+</h3>
+<ul>
+	<li>1 uppercase letter</li>
+	<li>1 lowercase letter</li>
+	<li>1 number</li>
+	<li>minimum 6 characters in length</li>
+<ul>
+<br>
+
+<footer>
+	<p>&copy; 2018 CS340 Group 5 members: Trevor Hammock, Sung Kim and Xiaoli Sun.</p>
+</footer>
     
-  </div>
+</div>
 </body>

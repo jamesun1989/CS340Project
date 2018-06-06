@@ -40,7 +40,7 @@ $(document).ready(function()
 		[
 			{
 				"targets": 0,
-				"createdCell": dynamicPartLink
+				"createdCell": dynamicPartLink(['speed', 'size'], [formattedSpeed, formattedMemory])
 			},
 			{
 				"targets": 2,
@@ -67,8 +67,8 @@ $(document).ready(function()
 		$('#partTable').DataTable().rows.add(data).draw();
 
 		var filterHelper = new FilterList(CONFIG.getRAM, ajaxParams);
-		filterHelper.addRadioSelect($('#manufacturerSelect'), 'Manufacturer', 'manufacturer', GetUnique(data, 'manufacturer'));
-		filterHelper.addRadioSelect($('#typeSelect'),         'Type',         'type',         GetUnique(data, 'type'));
+		filterHelper.addSelect($('#manufacturerSelect'), 'Manufacturer', 'manufacturer', GetUnique(data, 'manufacturer'));
+		filterHelper.addSelect($('#typeSelect'),         'Type',         'type',         GetUnique(data, 'type'));
 		filterHelper.addFormattedRangeSlider($('#speedRange'), 'Speed', 'speed', GetMinMax(data, 'speed'), 1.0, 'minSpeed', 'maxSpeed', formattedSpeed);
 		filterHelper.addRangeSlider($('#sticksRange'), 'Stick Count', 'sticks', GetMinMax(data, 'sticks'), 1, 'minSticks', 'maxSticks');
 		filterHelper.addFormattedRangeSlider($('#sizeRange'), 'Size', 'size', GetMinMax(data, 'size'), 0.1, 'minSize', 'maxSize', formattedMemory);

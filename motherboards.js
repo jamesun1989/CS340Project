@@ -34,7 +34,7 @@ $(document).ready(function()
 		[
 			{
 				"targets": 0,
-				"createdCell": dynamicPartLink
+				"createdCell": dynamicPartLink(['maxRam'], [formattedMemory])
 			},
 			{
 				"targets": 5,
@@ -57,9 +57,9 @@ $(document).ready(function()
 		$('#partTable').DataTable().rows.add(data).draw();
 
 		var filterHelper = new FilterList(CONFIG.getMotherboards, ajaxParams);
-		filterHelper.addRadioSelect($('#manufacturerSelect'), 'Manufacturer', 'manufacturer', GetUnique(data, 'manufacturer'));
-		filterHelper.addRadioSelect($('#socketSelect'),       'Socket',       'socket',       GetUnique(data, 'socket'));
-		filterHelper.addRadioSelect($('#formFactorSelect'),   'Form Factor',  'formFactor',   GetUnique(data, 'formFactor'));
+		filterHelper.addSelect($('#manufacturerSelect'), 'Manufacturer', 'manufacturer', GetUnique(data, 'manufacturer'));
+		filterHelper.addSelect($('#socketSelect'),       'Socket',       'socket',       GetUnique(data, 'socket'));
+		filterHelper.addSelect($('#formFactorSelect'),   'Form Factor',  'formFactor',   GetUnique(data, 'formFactor'));
 		filterHelper.addRangeSlider($('#ramSlotsRange'), 'RAM Slots', 'ramSlots', GetMinMax(data, 'ramSlots'), 1, 'minSlots', 'maxSlots');
 		filterHelper.addFormattedRangeSlider($('#maxRamRange'), 'Max RAM', 'maxRam', GetMinMax(data, 'maxRam'), 0.1, 'minRAM', 'maxRAM', formattedMemory);
 	});

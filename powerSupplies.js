@@ -7,6 +7,13 @@ var ajaxParams =
 	maxWattage: 0,
 };
 
+function formattedEightyPlus(data)
+{
+	if(data !== null)
+		return '80+ '+data;
+	return data;
+}
+
 function formattedWattage(data)
 {
 	return data + 'W';
@@ -29,16 +36,11 @@ $(document).ready(function()
 		[
 			{
 				"targets": 0,
-				"createdCell": dynamicPartLink
+				"createdCell": dynamicPartLink(['eightyPlus', 'wattage'], [formattedEightyPlus, formattedWattage])
 			},
 			{
 				"targets": 3,
-				"render": function(data, type, row, meta)
-				{
-					if(data !== null)
-						return '80+ '+data;
-					return data;
-				}
+				"render": formattedEightyPlus
 			},
 			{
 				"targets": 4,
@@ -69,9 +71,9 @@ $(document).ready(function()
 		$('#partTable').DataTable().rows.add(data).draw();
 
 		var filterHelper = new FilterList(CONFIG.getPowerSupplies, ajaxParams);
-		filterHelper.addRadioSelect($('#manufacturerSelect'), 'Manufacturer', 'manufacturer', GetUnique(data, 'manufacturer'));
-		filterHelper.addRadioSelectWithDisplay($('#eightyPlusSelect'), 'Efficiency', 'eightyPlus', efficiencyList, efficiencyDisplayList);
-		filterHelper.addRadioSelect($('#modularSelect'),      'Modular',      'modular',      GetUnique(data, 'modular'));
+		filterHelper.addSelect($('#manufacturerSelect'), 'Manufacturer', 'manufacturer', GetUnique(data, 'manufacturer'));
+		filterHelper.addSelectWithDisplay($('#eightyPlusSelect'), 'Efficiency', 'eightyPlus', efficiencyList, efficiencyDisplayList);
+		filterHelper.addSelect($('#modularSelect'),      'Modular',      'modular',      GetUnique(data, 'modular'));
 		filterHelper.addFormattedRangeSlider($('#wattageRange'), 'Wattage', 'wattage', GetMinMax(data, 'wattage'), 1, 'minWattage', 'maxWattage', formattedWattage);
 	});
 });

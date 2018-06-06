@@ -30,17 +30,36 @@ $(document).ready(function()
 			{ 'data': 'threads'},
 			{ 'data': 'socket'},
 			{ 'data': 'clockSpeed'},
-			{ 'data': 'manufacturer'}
+			{ 'data': 'manufacturer'},
+			{ 'data': null}
 		],
 		'columnDefs':
 		[
 			{
 				"targets": 0,
-				"createdCell": dynamicPartLink
+				"createdCell": dynamicPartLink(['clockSpeed'], [formattedClockSpeed])
 			},
 			{
 				"targets": 4,
 				"render": formattedClockSpeed
+			},
+			{
+				"targets": 6,
+				"visible": true,
+				"searchable": false,
+				"orderable": false,
+				"createdCell": function(td, cellData, rowData, row, col)
+				{
+					$(td).html('<button class="btn btn-info btn-sm">Add</button>').click(function()
+					{
+						alert("test");
+						//make visible if addCPU is defined in localStorage and there is an authToken
+						//grab the buildID from the addCPU key
+						//when they click on the button, try to add the part to the build
+						//if successful then redirect back to the build page
+						//if error or 1 row was not affected then show modal or something that we were unable to add the part
+					});
+				}
 			}
 		],
 		"deferRender": true,
@@ -59,9 +78,9 @@ $(document).ready(function()
 		$('#partTable').DataTable().rows.add(data).draw();
 
 		var filterHelper = new FilterList(CONFIG.getCPU, ajaxParams);
-		filterHelper.addRadioSelect($('#manufacturerSelect'), 'Manufacturer', 'manufacturer', GetUnique(data, 'manufacturer'), CONFIG.getCPU);
-		filterHelper.addRadioSelect($('#socketSelect'),       'Socket',       'socket',       GetUnique(data, 'socket'));
-		filterHelper.addRadioSelect($('#familySelect'),       'Family',       'family',       GetUnique(data, 'family'));
+		filterHelper.addSelect($('#manufacturerSelect'), 'Manufacturer', 'manufacturer', GetUnique(data, 'manufacturer'));
+		filterHelper.addSelect($('#socketSelect'),       'Socket',       'socket',       GetUnique(data, 'socket'));
+		filterHelper.addSelect($('#familySelect'),       'Family',       'family',       GetUnique(data, 'family'));
 		filterHelper.addRangeSlider($('#coresRange'), 'Core Count', 'cores', GetMinMax(data, 'cores'), 1, 'minCores', 'maxCores');
 		filterHelper.addRangeSlider($('#threadsRange'), 'Thread Count', 'threads', GetMinMax(data, 'threads'), 1, 'minThreads', 'maxThreads');
 		filterHelper.addFormattedRangeSlider($('#clockSpeedRange'), 'Clock Speed', 'clockSpeed', GetMinMax(data, 'clockSpeed'), 0.1, 'minClockSpeed', 'maxClockSpeed', formattedClockSpeed);

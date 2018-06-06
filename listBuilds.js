@@ -1,25 +1,5 @@
 $(document).ready(function()
 {
-
-	$('#buildList').DataTable(
-		{
-			'columns':
-			[
-				{ 'data': 'buildID'},
-				{ 'data': 'name'},
-				{ 'data': 'shared'},
-
-			],
-			'columnDefs':
-			[
-				{
-					"targets": 0,
-				}
-			],
-			"deferRender": true,
-			"order": []
-		});
-
 	var ajaxProperties =
 	{
 		method: "GET",
@@ -30,17 +10,23 @@ $(document).ready(function()
 
 	var doneCallback = function(data)
 	{
-		console.log(data);
-		$('#buildList').DataTable().clear();
-		$('#buildList').DataTable().rows.add(data).draw();
-        
+		var numUnnamedBuilds = 1;
+		$.each(data, function()
+		{
+			let buildLink = 'buildsPage.php?buildID=' + this.buildID;
+			console.log(buildLink);
+
+			let name = this.name;
+			if(name === null)
+				name = 'Unnamed Build ' + numUnnamedBuilds++;
+
+			let shared = (this.shared == '1')? "Yes": "No";
+
+			$('#buildList tbody').append('<tr><td><a href="#">'+name+'</a></td><td>'+shared+'</td><td></td></tr>');
+		});
 	};
 
-	var request = new AuthorizedAjax("build_test.php", ajaxProperties, doneCallback);
-	
-
-
+	var request = new AuthorizedAjax("listBuilds.php", ajaxProperties, doneCallback);
 	request.start();
-	
 });
 

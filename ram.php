@@ -37,19 +37,19 @@
 		<div class="row">
 			<div class="col-sm-3 col-lg-3">
 				<div class="row">
-					<div class="col-sm-3 col-lg-3" id="manufacturerSelect"></div>
+					<div class="col-sm-11 col-lg-11" id="manufacturerSelect"></div>
 				</div>
 				<div class="row">
-					<div class="col-sm-3 col-lg-3" id="typeSelect"></div>
+					<div class="col-sm-11 col-lg-11" id="typeSelect"></div>
 				</div>
 				<div class="row">
-					<div class="col-sm-3 col-lg-3" id="speedRange"></div>
+					<div class="col-sm-10 col-lg-10" id="speedRange"></div>
 				</div>
 				<div class="row">
-					<div class="col-sm-3 col-lg-3" id="sticksRange"></div>
+					<div class="col-sm-10 col-lg-10" id="sticksRange"></div>
 				</div>
 				<div class="row">
-					<div class="col-sm-3 col-lg-3" id="sizeRange"></div>
+					<div class="col-sm-10 col-lg-10" id="sizeRange"></div>
 				</div>
 			</div>
 			<div class="col-sm-9 col-lg-9">

@@ -30,7 +30,6 @@
 	<p class="lead">Builds</p>
 </div>
 
-<div>
 <table id="buildList" class="table table-bordered" data-effect="fade">
 	<thead>
 		<tr>
@@ -41,7 +40,6 @@
     </thead>
     <tbody></tbody>
 </table>
-</div>
 
 </div>
 </body>

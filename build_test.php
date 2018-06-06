@@ -19,7 +19,49 @@
 </head>
 
 <body>
-	<div id=test></div>
+<div class="container">
+	<?php include '_nav.html'; ?>
+
+<div class="well">
+	<p class="lead">Build Parts</p>
+</div>
+
+<p class="lead">Parts</p>
+<table id="buildParts" class="table table-bordered" data-effect="fade">
+	<thead>
+		<tr>
+			<th>Component</th>
+			<th>PartID</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr id="caseID">
+			<td>Case</td>
+		</tr>
+		<tr id="cpuID">
+			<td>CPU</td>
+		</tr>
+		<tr id="cpuCoolerID">
+			<td>CPU Cooler</td>
+		</tr>
+		<tr id="gpuID" data-multi="true">
+			<td>GPU</td>
+		</tr>
+		<tr id="motherboardID">
+			<td>Motherboard</td>
+		</tr>
+		<tr id="psuID">
+			<td>Power Supply</td>
+		</tr>
+		<tr id="ramID" data-multi="true">
+			<td>RAM</td>
+		</tr>
+		<tr id="storageID" data-multi="true">
+			<td>Storage</td>
+		</tr>
+	</tbody>
+</table>
+
 <script>
 $(document).ready(function()
 {
@@ -34,6 +76,44 @@ $(document).ready(function()
 	var doneCallback = function(data)
 	{
 		console.log(data);
+
+		let rowSpans = {};
+		$('#buildParts tbody tr').each(function()
+		{
+			rowSpans[this.id] = 1;
+		});
+
+		$.each(data, function()
+		{			
+			let partType = this.partType
+			let row = $('#'+partType);
+			let output = '';
+			//let afterRow = row;
+
+			$.each(this.partIDs, function()
+			{
+				if(rowSpans[partType] == 1)
+					row.append('<td>'+this+'</td>');
+				else
+					output += '<tr><td>'+this+'</td></tr>';
+
+				row.children().first().prop('rowspan', rowSpans[partType]);
+				rowSpans[partType]++;
+			});
+
+			if(row.prop('dataset').multi)
+			{
+				if(rowSpans[partType] == 1)
+					row.append('<td><a href="#">test</a></td>');
+				else
+					output += '<tr><td><a href="#">test</a></td></tr>';
+
+				row.children().first().prop('rowspan', rowSpans[partType]);
+				rowSpans[partType]++;
+			}
+
+			row.after(output);
+		});
 	};
 
 	var request = new AuthorizedAjax("build_test.php", ajaxProperties, doneCallback);

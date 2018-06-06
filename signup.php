@@ -61,6 +61,17 @@
 
 <div id="message"></div>
 
+<h3>
+	<strong>Password Requirements</strong>
+</h3>
+<ul>
+	<li>1 uppercase letter</li>
+	<li>1 lowercase letter</li>
+	<li>1 number</li>
+	<li>minimum 6 characters in length</li>
+<ul>
+<br>
+
 <footer>
 	<p>&copy; 2018 CS340 Group 5 members: Trevor Hammock, Sung Kim and Xiaoli Sun.</p>
 </footer>

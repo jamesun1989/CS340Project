@@ -50,9 +50,14 @@ $(document).ready(function()
 				"orderable": false,
 				"createdCell": function(td, cellData, rowData, row, col)
 				{
-					return $(td).html('<button class="btn btn-info btn-sm">Add</button>').click(function()
+					$(td).html('<button class="btn btn-info btn-sm">Add</button>').click(function()
 					{
 						alert("test");
+						//make visible if addCPU is defined in localStorage and there is an authToken
+						//grab the buildID from the addCPU key
+						//when they click on the button, try to add the part to the build
+						//if successful then redirect back to the build page
+						//if error or 1 row was not affected then show modal or something that we were unable to add the part
 					});
 				}
 			}
@@ -73,7 +78,7 @@ $(document).ready(function()
 		$('#partTable').DataTable().rows.add(data).draw();
 
 		var filterHelper = new FilterList(CONFIG.getCPU, ajaxParams);
-		filterHelper.addSelect($('#manufacturerSelect'), 'Manufacturer', 'manufacturer', GetUnique(data, 'manufacturer'), CONFIG.getCPU);
+		filterHelper.addSelect($('#manufacturerSelect'), 'Manufacturer', 'manufacturer', GetUnique(data, 'manufacturer'));
 		filterHelper.addSelect($('#socketSelect'),       'Socket',       'socket',       GetUnique(data, 'socket'));
 		filterHelper.addSelect($('#familySelect'),       'Family',       'family',       GetUnique(data, 'family'));
 		filterHelper.addRangeSlider($('#coresRange'), 'Core Count', 'cores', GetMinMax(data, 'cores'), 1, 'minCores', 'maxCores');

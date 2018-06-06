@@ -76,10 +76,10 @@ $(document).ready(function()
 		$('#partTable').DataTable().rows.add(data).draw();
 
 		var filterHelper = new FilterList(CONFIG.getStorage, ajaxParams);
-		filterHelper.addRadioSelect($('#manufacturerSelect'), 'Manufacturer', 'manufacturer', GetUnique(data, 'manufacturer'));
-		filterHelper.addRadioSelect($('#formFactorSelect'),   'Form Factor',  'formFactor',   GetUnique(data, 'formFactor'));
-		filterHelper.addRadioSelectWithDisplay($('#ssdSelect'), 'SSD', 'isSSD', [0], ['No']);
-		filterHelper.addRadioSelectWithDisplay($('#hddSelect'), 'HDD', 'isHDD', [0], ['No']);
+		filterHelper.addSelect($('#manufacturerSelect'), 'Manufacturer', 'manufacturer', GetUnique(data, 'manufacturer'));
+		filterHelper.addSelect($('#formFactorSelect'),   'Form Factor',  'formFactor',   GetUnique(data, 'formFactor'));
+		filterHelper.addSelectWithDisplay($('#ssdSelect'), 'SSD', 'isSSD', [0], ['No']);
+		filterHelper.addSelectWithDisplay($('#hddSelect'), 'HDD', 'isHDD', [0], ['No']);
 		filterHelper.addFormattedRangeSlider($('#sizeRange'), 'Size', 'size', GetMinMax(data, 'size'), 1, 'minSize', 'maxSize', formattedSize);
 	});
 });

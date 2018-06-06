@@ -35,28 +35,28 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr id="caseID">
+		<tr id="caseID" data-max="1">
 			<td>Case</td>
 		</tr>
-		<tr id="cpuID">
+		<tr id="cpuID" data-max="1">
 			<td>CPU</td>
 		</tr>
-		<tr id="cpuCoolerID">
+		<tr id="cpuCoolerID" data-max="1">
 			<td>CPU Cooler</td>
 		</tr>
-		<tr id="gpuID" data-multi="true">
+		<tr id="gpuID" data-max="4">
 			<td>GPU</td>
 		</tr>
-		<tr id="motherboardID">
+		<tr id="motherboardID" data-max="1">
 			<td>Motherboard</td>
 		</tr>
-		<tr id="psuID">
+		<tr id="psuID" data-max="1">
 			<td>Power Supply</td>
 		</tr>
-		<tr id="ramID" data-multi="true">
+		<tr id="ramID" data-max="4">
 			<td>RAM</td>
 		</tr>
-		<tr id="storageID" data-multi="true">
+		<tr id="storageID" data-max="4">
 			<td>Storage</td>
 		</tr>
 	</tbody>
@@ -75,8 +75,6 @@ $(document).ready(function()
 
 	var doneCallback = function(data)
 	{
-		console.log(data);
-
 		let rowSpans = {};
 		$('#buildParts tbody tr').each(function()
 		{
@@ -88,7 +86,7 @@ $(document).ready(function()
 			let partType = this.partType
 			let row = $('#'+partType);
 			let output = '';
-			//let afterRow = row;
+			let before = rowSpans[partType];
 
 			$.each(this.partIDs, function()
 			{
@@ -101,7 +99,7 @@ $(document).ready(function()
 				rowSpans[partType]++;
 			});
 
-			if(row.prop('dataset').multi)
+			if(rowSpans[partType] < row.prop('dataset').max || rowSpans[partType] == before)
 			{
 				if(rowSpans[partType] == 1)
 					row.append('<td><a href="#">test</a></td>');

@@ -65,9 +65,9 @@ $(document).ready(function()
 		$('#partTable').DataTable().rows.add(data).draw();
 
 		var filterHelper = new FilterList(CONFIG.getCPUCoolers, ajaxParams);
-		filterHelper.addRadioSelect($('#manufacturerSelect'), 'Manufacturer',  'manufacturer', GetUnique(data, 'manufacturer'));
-		filterHelper.addRadioSelectWithDisplay($('#isAirSelect'), 'Air Cooled', 'isAir', [0], ['No']);
-		filterHelper.addRadioSelectWithDisplay($('#isLiquidSelect'), 'Liquid Cooled', 'isLiquid', [0], ['No']);
+		filterHelper.addSelect($('#manufacturerSelect'), 'Manufacturer',  'manufacturer', GetUnique(data, 'manufacturer'));
+		filterHelper.addSelectWithDisplay($('#isAirSelect'), 'Air Cooled', 'isAir', [0], ['No']);
+		filterHelper.addSelectWithDisplay($('#isLiquidSelect'), 'Liquid Cooled', 'isLiquid', [0], ['No']);
 		filterHelper.addFormattedRangeSlider($('#heightRange'), 'Height', 'height', GetMinMax(data, 'height'), 1, 'minHeight', 'maxHeight', formattedHeight);
 	});
 });

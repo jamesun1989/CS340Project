@@ -71,9 +71,9 @@ $(document).ready(function()
 		$('#partTable').DataTable().rows.add(data).draw();
 
 		var filterHelper = new FilterList(CONFIG.getPowerSupplies, ajaxParams);
-		filterHelper.addRadioSelect($('#manufacturerSelect'), 'Manufacturer', 'manufacturer', GetUnique(data, 'manufacturer'));
-		filterHelper.addRadioSelectWithDisplay($('#eightyPlusSelect'), 'Efficiency', 'eightyPlus', efficiencyList, efficiencyDisplayList);
-		filterHelper.addRadioSelect($('#modularSelect'),      'Modular',      'modular',      GetUnique(data, 'modular'));
+		filterHelper.addSelect($('#manufacturerSelect'), 'Manufacturer', 'manufacturer', GetUnique(data, 'manufacturer'));
+		filterHelper.addSelectWithDisplay($('#eightyPlusSelect'), 'Efficiency', 'eightyPlus', efficiencyList, efficiencyDisplayList);
+		filterHelper.addSelect($('#modularSelect'),      'Modular',      'modular',      GetUnique(data, 'modular'));
 		filterHelper.addFormattedRangeSlider($('#wattageRange'), 'Wattage', 'wattage', GetMinMax(data, 'wattage'), 1, 'minWattage', 'maxWattage', formattedWattage);
 	});
 });

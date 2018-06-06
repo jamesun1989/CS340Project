@@ -59,7 +59,7 @@
 	</div>
 </div>
 
-<div id="test"></div>
+<div id="message"></div>
 
 <footer>
 	<p>&copy; 2018 CS340 Group 5 members: Trevor Hammock, Sung Kim and Xiaoli Sun.</p>

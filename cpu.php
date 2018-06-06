@@ -66,6 +66,7 @@
 							<th>Socket</th>
 							<th>Clock Speed</th>
 							<th>Manufacturer</th>
+							<th></th>
 						</tr>
 					</thead>
 					<tfoot>

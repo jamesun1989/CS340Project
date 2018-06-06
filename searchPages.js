@@ -96,12 +96,12 @@ function FilterList(endPoint, endPointParams)
 	this.endPoint = endPoint;
 	this.endPointParams = endPointParams;
 
-	this.addRadioSelect = function(appendTo, title, searchName, list)
+	this.addSelect = function(appendTo, title, searchName, list)
 	{
-		this.addRadioSelectWithDisplay(appendTo, title, searchName, list, list);
+		this.addSelectWithDisplay(appendTo, title, searchName, list, list);
 	};
 
-	this.addRadioSelectWithDisplay = function(appendTo, title, searchName, list, displayList)
+	this.addSelectWithDisplay = function(appendTo, title, searchName, list, displayList)
 	{
 		var output = '<p class="lead">'+title+'</p>' +
 		             '<select class="form-control" name="'+searchName+'">' +

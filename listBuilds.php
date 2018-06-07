@@ -16,6 +16,7 @@
 
 	<script type="text/javascript" src="jQuery/jquery.min.js"></script>
 	<script type="text/javascript" src="Bootstrap3/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
 	<script type="text/javascript" src="DataTables/datatables.min.js"></script>
 	<script type="text/javascript" src="config.js"></script>
     <script type="text/javascript" src="authorizedAjax.js"></script>
@@ -36,6 +37,7 @@
 		    <th>Name</th>
 		    <th>Shared</th>
 		    <th>Maybe Build Operations</th>
+		    <th></th>
 		</tr>
     </thead>
     <tbody></tbody>

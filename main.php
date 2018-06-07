@@ -23,7 +23,7 @@
 		<div class="jumbotron">
 			<h1>PC Builds</h1>
 			<p>A website that help creating your own PC builds</p>
-			<p><a class="btn btn-primary btn-lg" href="#" role="button">Sign Up Now</a></p>
+			<p><a class="btn btn-primary btn-lg" href="signup.php" role="button">Sign Up Now</a></p>
 		</div>
 
 		<div class="row">

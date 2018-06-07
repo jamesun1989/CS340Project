@@ -45,7 +45,7 @@ $(document).ready(function()
 			},
 			{
 				"targets": 6,
-				"visible": true,
+				"visible": localStorage.getItem('addCPU') !== null && localStorage.getItem('authToken'),
 				"searchable": false,
 				"orderable": false,
 				"createdCell": function(td, cellData, rowData, row, col)

@@ -1,6 +1,6 @@
 $(document).ready(function()
 {
-    if(localStorage.getItem("loginRedirect") === null)
+    if(localStorage.getItem("loginRedirect") === null || localStorage.getItem("refreshToken") === null)
     {
         localStorage.setItem("loginRedirect", "main.php");
     }

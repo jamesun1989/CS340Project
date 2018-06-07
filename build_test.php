@@ -14,6 +14,7 @@
   <script type="text/javascript" src="jQuery/jquery.min.js"></script>
   <script type="text/javascript" src="Bootstrap3/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="DataTables/datatables.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
   <script type="text/javascript" src="config.js"></script>
   <script type="text/javascript" src="authorizedAjax.js"></script>
 </head>
@@ -26,39 +27,123 @@
 	<p class="lead">Build Parts</p>
 </div>
 
-<p class="lead">Parts</p>
-<table id="buildParts" class="table table-bordered" data-effect="fade">
+<table data-max="1" id="caseID" class="table table-bordered" data-effect="fade">
 	<thead>
 		<tr>
-			<th>Component</th>
-			<th>PartID</th>
+			<th colspan="3">Case</th>
+		</tr>
+		<tr>
+			<th width="34%">PartID</th>
+			<th width="33%">Name</th>
+			<th width="33%">Operations</th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr id="caseID" data-max="1">
-			<td>Case</td>
+	</tbody>
+</table>
+
+<table data-max="1" id="cpuID" class="table table-bordered" data-effect="fade">
+	<thead>
+		<tr>
+			<th colspan="3">CPU</th>
 		</tr>
-		<tr id="cpuID" data-max="1">
-			<td>CPU</td>
+		<tr>
+			<th width="34%">PartID</th>
+			<th width="33%">Name</th>
+			<th width="33%">Operations</th>
 		</tr>
-		<tr id="cpuCoolerID" data-max="1">
-			<td>CPU Cooler</td>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+
+<table data-max="1" id="cpuCoolerID" class="table table-bordered" data-effect="fade">
+	<thead>
+		<tr>
+			<th colspan="3">CPU Cooler</th>
 		</tr>
-		<tr id="gpuID" data-max="4">
-			<td>GPU</td>
+		<tr>
+			<th width="34%">PartID</th>
+			<th width="33%">Name</th>
+			<th width="33%">Operations</th>
 		</tr>
-		<tr id="motherboardID" data-max="1">
-			<td>Motherboard</td>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+
+<table data-max="4" id="gpuID" class="table table-bordered" data-effect="fade">
+	<thead>
+		<tr>
+			<th colspan="3">GPU</th>
 		</tr>
-		<tr id="psuID" data-max="1">
-			<td>Power Supply</td>
+		<tr>
+			<th width="34%">PartID</th>
+			<th width="33%">Name</th>
+			<th width="33%">Operations</th>
 		</tr>
-		<tr id="ramID" data-max="4">
-			<td>RAM</td>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+
+<table data-max="1" id="motherboardID" class="table table-bordered" data-effect="fade">
+	<thead>
+		<tr>
+			<th colspan="3">Motherboard</th>
 		</tr>
-		<tr id="storageID" data-max="4">
-			<td>Storage</td>
+		<tr>
+			<th width="34%">PartID</th>
+			<th width="33%">Name</th>
+			<th width="33%">Operations</th>
 		</tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+
+<table data-max="1" id="psuID" class="table table-bordered" data-effect="fade">
+	<thead>
+		<tr>
+			<th colspan="3">PSU</th>
+		</tr>
+		<tr>
+			<th width="34%">PartID</th>
+			<th width="33%">Name</th>
+			<th width="33%">Operations</th>
+		</tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+
+<table data-max="4" id="ramID" class="table table-bordered" data-effect="fade">
+	<thead>
+		<tr>
+			<th colspan="3">RAM</th>
+		</tr>
+		<tr>
+			<th width="34%">PartID</th>
+			<th width="33%">Name</th>
+			<th width="33%">Operations</th>
+		</tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+
+<table data-max="4" id="storageID" class="table table-bordered" data-effect="fade">
+	<thead>
+		<tr>
+			<th colspan="3">Storage ID</th>
+		</tr>
+		<tr>
+			<th width="34%">PartID</th>
+			<th width="33%">Name</th>
+			<th width="33%">Operations</th>
+		</tr>
+	</thead>
+	<tbody>
 	</tbody>
 </table>
 
@@ -75,42 +160,43 @@ $(document).ready(function()
 
 	var doneCallback = function(data)
 	{
-		let rowSpans = {};
-		$('#buildParts tbody tr').each(function()
-		{
-			rowSpans[this.id] = 1;
-		});
-
 		$.each(data, function()
-		{			
-			let partType = this.partType
-			let row = $('#'+partType);
-			let output = '';
-			let before = rowSpans[partType];
-
-			$.each(this.partIDs, function()
+		{
+			var partType = this.partType;
+			var counter = 0;
+			$.each(this.ids, function()
 			{
-				if(rowSpans[partType] == 1)
-					row.append('<td>'+this+'</td>');
-				else
-					output += '<tr><td>'+this+'</td></tr>';
+				counter++;
+				var row = $("<tr><td>" + this.partID +  '</td><td></td></tr>');
+				var delete_button = $('<button class="btn btn-danger">Delete</button>').click(function(){
+					bootbox.confirm(
+					{
+						message: "This is a confirm with custom button text and color! Do you like it?",
+						backdrop: true,
+						buttons: {
+							confirm: {
+								label: 'Yes',
+								className: 'btn-success',
+							},
+							cancel: {
+								label: 'No',
+								className: 'btn-danger',
+							}
+						},
+						callback: function (result) {
+							console.log('This was logged in the callback: ' + result);
+						}
+					});
+				});
+				row.append($('<td></td>').append(delete_button));
 
-				row.children().first().prop('rowspan', rowSpans[partType]);
-				rowSpans[partType]++;
+				$("#" + partType + " tbody")
+				.append(row);
 			});
-
-			if(rowSpans[partType] < row.prop('dataset').max || rowSpans[partType] == before)
-			{
-				if(rowSpans[partType] == 1)
-					row.append('<td><a href="#">test</a></td>');
-				else
-					output += '<tr><td><a href="#">test</a></td></tr>';
-
-				row.children().first().prop('rowspan', rowSpans[partType]);
-				rowSpans[partType]++;
+			if($("#" + partType).prop("dataset").max > counter){
+				$("#" + partType + " tbody")
+				.append('<td>test</td>');
 			}
-
-			row.after(output);
 		});
 	};
 

@@ -14,6 +14,7 @@
   <script type="text/javascript" src="jQuery/jquery.min.js"></script>
   <script type="text/javascript" src="Bootstrap3/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="DataTables/datatables.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
   <script type="text/javascript" src="config.js"></script>
   <script type="text/javascript" src="authorizedAjax.js"></script>
 </head>
@@ -26,7 +27,7 @@
 	<p class="lead">Build Parts</p>
 </div>
 
-<table id="caseID" class="table table-bordered" data-effect="fade">
+<table data-max="1" id="caseID" class="table table-bordered" data-effect="fade">
 	<thead>
 		<tr>
 			<th colspan="3">Case</th>
@@ -41,7 +42,7 @@
 	</tbody>
 </table>
 
-<table id="cpuID" class="table table-bordered" data-effect="fade">
+<table data-max="1" id="cpuID" class="table table-bordered" data-effect="fade">
 	<thead>
 		<tr>
 			<th colspan="3">CPU</th>
@@ -56,7 +57,7 @@
 	</tbody>
 </table>
 
-<table id="cpuCoolerID" class="table table-bordered" data-effect="fade">
+<table data-max="1" id="cpuCoolerID" class="table table-bordered" data-effect="fade">
 	<thead>
 		<tr>
 			<th colspan="3">CPU Cooler</th>
@@ -71,7 +72,7 @@
 	</tbody>
 </table>
 
-<table id="gpuID" class="table table-bordered" data-effect="fade">
+<table data-max="4" id="gpuID" class="table table-bordered" data-effect="fade">
 	<thead>
 		<tr>
 			<th colspan="3">GPU</th>
@@ -86,7 +87,7 @@
 	</tbody>
 </table>
 
-<table id="motherboardID" class="table table-bordered" data-effect="fade">
+<table data-max="1" id="motherboardID" class="table table-bordered" data-effect="fade">
 	<thead>
 		<tr>
 			<th colspan="3">Motherboard</th>
@@ -101,7 +102,7 @@
 	</tbody>
 </table>
 
-<table id="psuID" class="table table-bordered" data-effect="fade">
+<table data-max="1" id="psuID" class="table table-bordered" data-effect="fade">
 	<thead>
 		<tr>
 			<th colspan="3">PSU</th>
@@ -116,7 +117,7 @@
 	</tbody>
 </table>
 
-<table id="ramID" class="table table-bordered" data-effect="fade">
+<table data-max="4" id="ramID" class="table table-bordered" data-effect="fade">
 	<thead>
 		<tr>
 			<th colspan="3">RAM</th>
@@ -131,7 +132,7 @@
 	</tbody>
 </table>
 
-<table id="storageID" class="table table-bordered" data-effect="fade">
+<table data-max="4" id="storageID" class="table table-bordered" data-effect="fade">
 	<thead>
 		<tr>
 			<th colspan="3">Storage ID</th>
@@ -162,12 +163,40 @@ $(document).ready(function()
 		$.each(data, function()
 		{
 			var partType = this.partType;
-			console.log(this);
-			$.each(this.partIDs, function()
+			var counter = 0;
+			$.each(this.ids, function()
 			{
+				counter++;
+				var row = $("<tr><td>" + this.partID +  '</td><td></td></tr>');
+				var delete_button = $('<button class="btn btn-danger">Delete</button>').click(function(){
+					bootbox.confirm(
+					{
+						message: "This is a confirm with custom button text and color! Do you like it?",
+						backdrop: true,
+						buttons: {
+							confirm: {
+								label: 'Yes',
+								className: 'btn-success',
+							},
+							cancel: {
+								label: 'No',
+								className: 'btn-danger',
+							}
+						},
+						callback: function (result) {
+							console.log('This was logged in the callback: ' + result);
+						}
+					});
+				});
+				row.append($('<td></td>').append(delete_button));
+
 				$("#" + partType + " tbody")
-				.append("<tr><td>" + this +  "</td><td></td><td></td></tr>");
+				.append(row);
 			});
+			if($("#" + partType).prop("dataset").max > counter){
+				$("#" + partType + " tbody")
+				.append('<td>test</td>');
+			}
 		});
 	};
 

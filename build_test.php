@@ -26,39 +26,123 @@
 	<p class="lead">Build Parts</p>
 </div>
 
-<p class="lead">Parts</p>
-<table id="buildParts" class="table table-bordered" data-effect="fade">
+<table id="caseID" class="table table-bordered" data-effect="fade">
 	<thead>
 		<tr>
-			<th>Component</th>
-			<th>PartID</th>
+			<th colspan="3">Case</th>
+		</tr>
+		<tr>
+			<th width="34%">PartID</th>
+			<th width="33%">Name</th>
+			<th width="33%">Operations</th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr id="caseID" data-max="1">
-			<td>Case</td>
+	</tbody>
+</table>
+
+<table id="cpuID" class="table table-bordered" data-effect="fade">
+	<thead>
+		<tr>
+			<th colspan="3">CPU</th>
 		</tr>
-		<tr id="cpuID" data-max="1">
-			<td>CPU</td>
+		<tr>
+			<th width="34%">PartID</th>
+			<th width="33%">Name</th>
+			<th width="33%">Operations</th>
 		</tr>
-		<tr id="cpuCoolerID" data-max="1">
-			<td>CPU Cooler</td>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+
+<table id="cpuCoolerID" class="table table-bordered" data-effect="fade">
+	<thead>
+		<tr>
+			<th colspan="3">CPU Cooler</th>
 		</tr>
-		<tr id="gpuID" data-max="4">
-			<td>GPU</td>
+		<tr>
+			<th width="34%">PartID</th>
+			<th width="33%">Name</th>
+			<th width="33%">Operations</th>
 		</tr>
-		<tr id="motherboardID" data-max="1">
-			<td>Motherboard</td>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+
+<table id="gpuID" class="table table-bordered" data-effect="fade">
+	<thead>
+		<tr>
+			<th colspan="3">GPU</th>
 		</tr>
-		<tr id="psuID" data-max="1">
-			<td>Power Supply</td>
+		<tr>
+			<th width="34%">PartID</th>
+			<th width="33%">Name</th>
+			<th width="33%">Operations</th>
 		</tr>
-		<tr id="ramID" data-max="4">
-			<td>RAM</td>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+
+<table id="motherboardID" class="table table-bordered" data-effect="fade">
+	<thead>
+		<tr>
+			<th colspan="3">Motherboard</th>
 		</tr>
-		<tr id="storageID" data-max="4">
-			<td>Storage</td>
+		<tr>
+			<th width="34%">PartID</th>
+			<th width="33%">Name</th>
+			<th width="33%">Operations</th>
 		</tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+
+<table id="psuID" class="table table-bordered" data-effect="fade">
+	<thead>
+		<tr>
+			<th colspan="3">PSU</th>
+		</tr>
+		<tr>
+			<th width="34%">PartID</th>
+			<th width="33%">Name</th>
+			<th width="33%">Operations</th>
+		</tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+
+<table id="ramID" class="table table-bordered" data-effect="fade">
+	<thead>
+		<tr>
+			<th colspan="3">RAM</th>
+		</tr>
+		<tr>
+			<th width="34%">PartID</th>
+			<th width="33%">Name</th>
+			<th width="33%">Operations</th>
+		</tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+
+<table id="storageID" class="table table-bordered" data-effect="fade">
+	<thead>
+		<tr>
+			<th colspan="3">Storage ID</th>
+		</tr>
+		<tr>
+			<th width="34%">PartID</th>
+			<th width="33%">Name</th>
+			<th width="33%">Operations</th>
+		</tr>
+	</thead>
+	<tbody>
 	</tbody>
 </table>
 
@@ -75,42 +159,15 @@ $(document).ready(function()
 
 	var doneCallback = function(data)
 	{
-		let rowSpans = {};
-		$('#buildParts tbody tr').each(function()
-		{
-			rowSpans[this.id] = 1;
-		});
-
 		$.each(data, function()
-		{			
-			let partType = this.partType
-			let row = $('#'+partType);
-			let output = '';
-			let before = rowSpans[partType];
-
+		{
+			var partType = this.partType;
+			console.log(this);
 			$.each(this.partIDs, function()
 			{
-				if(rowSpans[partType] == 1)
-					row.append('<td>'+this+'</td>');
-				else
-					output += '<tr><td>'+this+'</td></tr>';
-
-				row.children().first().prop('rowspan', rowSpans[partType]);
-				rowSpans[partType]++;
+				$("#" + partType + " tbody")
+				.append("<tr><td>" + this +  "</td><td></td><td></td></tr>");
 			});
-
-			if(rowSpans[partType] < row.prop('dataset').max || rowSpans[partType] == before)
-			{
-				if(rowSpans[partType] == 1)
-					row.append('<td><a href="#">test</a></td>');
-				else
-					output += '<tr><td><a href="#">test</a></td></tr>';
-
-				row.children().first().prop('rowspan', rowSpans[partType]);
-				rowSpans[partType]++;
-			}
-
-			row.after(output);
 		});
 	};
 

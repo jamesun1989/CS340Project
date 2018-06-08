@@ -191,7 +191,12 @@ function addToBuildCell(pageURL, addEndPoint)
 
 			var failCallback = function(jqXHR)
 			{
-				bootbox.alert("Sorry we are unable to add the part at this time");
+				bootbox.alert(
+				{
+					size: 'large',
+					backdrop: true,
+					message: "Sorry we are unable to add the part at this time"
+				});
 			};
 
 			var request = new AuthorizedAjax(pageURL, ajaxProperties, doneCallback, failCallback);

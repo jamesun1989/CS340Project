@@ -22,8 +22,8 @@ $(document).ready(function()
 		
 		$.each(data, function()
 		{
-			let buildLink = 'buildsPage.php?buildID=' + this.buildID;
-			console.log(buildLink);
+			
+			let buildLink = 'build.php?buildID=' + this.buildID;
 
 			let name = this.name;
 			if(name === null)
@@ -31,7 +31,7 @@ $(document).ready(function()
 
 			let shared = (this.shared == '1')? "Yes": "No";
 
-			var row = $('<tr><td><a href="#">'+name+'</a></td><td>'+shared+'</td></tr>');
+			var row = $('<tr><td><a href="'+buildLink+'">'+name+'</a></td><td>'+shared+'</td></tr>');
 			var update = $('<button class="btn btn-primary">Update</button>').click(function(){
 				bootbox.alert({
 					message: "This is an alert with a callback!",

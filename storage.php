@@ -19,14 +19,14 @@
 	<script type="text/javascript" src="Bootstrap-Slider/bootstrap-slider.min.js"></script>
 	<script type="text/javascript" src="Bootbox/bootbox.min.js"></script>
 	<script type="text/javascript" src="config.js"></script>
-	<script type="text/javascript" src="searchPages.js"></script>
 	<script type="text/javascript" src="authorizedAjax.js"></script>
+	<script type="text/javascript" src="searchPages.js"></script>
 	<script type="text/javascript" src="storage.js"></script>
 </head>
 
 <body>
-	<div class="container">
-		<?php include '_nav.html'; ?>
+<div class="container">
+	<?php include '_nav.html'; ?>
 
 <div class="well">
 	<p class="lead">Choose Storage</p>

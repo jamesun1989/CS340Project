@@ -18,6 +18,21 @@ var CONFIG =
 	listUserBuilds: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/listUserBuilds",
 	getUserBuild: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/getUserBuild",
 
+	addBuildCase: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/addBuildCase",
+	addBuildCPU: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/addBuildCPU",
+	addBuildCPUCooler: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/addBuildCPUCooler",
+	addBuildGraphicsCard: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/addBuildGraphicsCard",
+	addBuildMotherboard: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/addBuildMotherboard",
+	addBuildPowerSupply: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/addBuildPowerSupply",
+	addBuildRAM: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/addBuildRAM",
 	addBuildStorage: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/addBuildStorage",
-	deleteBuildStorage: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/deleteBuildStorage"
+
+	deleteBuildCase: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/deleteBuildCase",
+	deleteBuildCPU: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/deleteBuildCPU",
+	deleteBuildCPUCooler: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/deleteBuildCPUCooler",
+	deleteBuildGraphicsCard: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/deleteBuildGraphicsCard",
+	deleteBuildMotherboard: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/deleteBuildMotherboard",
+	deleteBuildPowerSupply: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/deleteBuildPowerSupply",
+	deleteBuildRAM: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/deleteBuildRAM",
+	deleteBuildStorage: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/deleteBuildStorage",
 };

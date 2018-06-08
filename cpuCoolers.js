@@ -32,7 +32,8 @@ $(document).ready(function()
 			{ 'data': 'model'},
 			{ 'data': 'manufacturer'},
 			{ 'data': 'height'},
-			{ 'data': 'liquid'}
+			{ 'data': 'liquid'},
+			{ 'data': null},
 		],
 		'columnDefs':
 		[
@@ -47,6 +48,13 @@ $(document).ready(function()
 			{
 				"targets": 4,
 				"render": formattedBool
+			},
+			{
+				"targets": 5,
+				"visible": localStorage.getItem('cpuCoolers.php') !== null && localStorage.getItem('authToken'),
+				"searchable": false,
+				"orderable": false,
+				"createdCell": addToBuildCell("cpuCoolers.php", CONFIG.addBuildCPUCooler)
 			}
 		],
 		"deferRender": true,

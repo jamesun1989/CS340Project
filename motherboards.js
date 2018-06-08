@@ -28,7 +28,8 @@ $(document).ready(function()
 			{ 'data': 'socket'},
 			{ 'data': 'formFactor'},
 			{ 'data': 'ramSlots'},
-			{ 'data': 'maxRam'}
+			{ 'data': 'maxRam'},
+			{ 'data': null}
 		],
 		'columnDefs':
 		[
@@ -39,6 +40,13 @@ $(document).ready(function()
 			{
 				"targets": 5,
 				"render": formattedMemory
+			},
+			{
+				"targets": 6,
+				"visible": localStorage.getItem('motherboards.php') !== null && localStorage.getItem('authToken'),
+				"searchable": false,
+				"orderable": false,
+				"createdCell": addToBuildCell("motherboards.php", CONFIG.addBuildMotherboard)
 			}
 		],
 		"deferRender": true,

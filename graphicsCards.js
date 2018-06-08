@@ -41,7 +41,8 @@ $(document).ready(function()
 			{ 'data': 'manufacturer'},
 			{ 'data': 'gpuChipset'},
 			{ 'data': 'clockSpeed'},
-			{ 'data': 'memorySize'}
+			{ 'data': 'memorySize'},
+			{ 'data': null}
 		],
 		'columnDefs':
 		[
@@ -56,6 +57,13 @@ $(document).ready(function()
 			{
 				"targets": 5,
 				"render": formattedMemory
+			},
+			{
+				"targets": 6,
+				"visible": localStorage.getItem('graphicsCards.php') !== null && localStorage.getItem('authToken'),
+				"searchable": false,
+				"orderable": false,
+				"createdCell": addToBuildCell("graphicsCards.php", CONFIG.addBuildGraphicsCard)
 			}
 		],
 		"deferRender": true,

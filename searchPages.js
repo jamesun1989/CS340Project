@@ -162,3 +162,40 @@ function FilterList(endPoint, endPointParams)
 	};
 }
 
+function addToBuildCell(pageURL, addEndPoint)
+{
+	return function(td, cellData, rowData, row, col)
+	{
+		$(td).html('<button class="btn btn-info btn-sm">Add</button>').click(function()
+		{
+			var postData =
+			{
+				buildID: localStorage.getItem(pageURL),
+				partID: rowData.partID
+			};
+
+			var ajaxProperties =
+			{
+				method: "POST",
+				url: addEndPoint,
+				data: JSON.stringify(postData),
+				dataType: "json"
+			};
+
+			var doneCallback = function()
+			{
+				localStorage.removeItem(pageURL);
+				window.location.replace("build.php");
+			}
+
+			var failCallback = function(jqXHR)
+			{
+				bootbox.alert("Sorry we are unable to add the part at this time");
+			};
+
+			var request = new AuthorizedAjax(pageURL, ajaxProperties, doneCallback, failCallback);
+			request.start();
+		});
+	}
+}
+

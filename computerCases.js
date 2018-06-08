@@ -21,13 +21,21 @@ $(document).ready(function()
 			{ 'data': 'name'},
 			{ 'data': 'model'},
 			{ 'data': 'manufacturer'},
-			{ 'data': 'type'}
+			{ 'data': 'type'},
+			{ 'data': null}
 		],
 		'columnDefs':
 		[
 			{
 				"targets": 0,
 				"createdCell": dynamicPartLink(['cpuCoolerClearance'], [formattedHeight])
+			},
+			{
+				"targets": 4,
+				"visible": localStorage.getItem('computerCases.php') !== null && localStorage.getItem('authToken'),
+				"searchable": false,
+				"orderable": false,
+				"createdCell": addToBuildCell("computerCases.php", CONFIG.addBuildCase)
 			}
 		],
 		"deferRender": true,

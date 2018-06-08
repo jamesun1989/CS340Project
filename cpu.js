@@ -45,21 +45,10 @@ $(document).ready(function()
 			},
 			{
 				"targets": 6,
-				"visible": localStorage.getItem('addCPU') !== null && localStorage.getItem('authToken'),
+				"visible": localStorage.getItem('cpu.php') !== null && localStorage.getItem('authToken'),
 				"searchable": false,
 				"orderable": false,
-				"createdCell": function(td, cellData, rowData, row, col)
-				{
-					$(td).html('<button class="btn btn-info btn-sm">Add</button>').click(function()
-					{
-						alert("test");
-						//make visible if addCPU is defined in localStorage and there is an authToken
-						//grab the buildID from the addCPU key
-						//when they click on the button, try to add the part to the build
-						//if successful then redirect back to the build page
-						//if error or 1 row was not affected then show modal or something that we were unable to add the part
-					});
-				}
+				"createdCell": addToBuildCell("cpu.php", CONFIG.addBuildCPU)
 			}
 		],
 		"deferRender": true,

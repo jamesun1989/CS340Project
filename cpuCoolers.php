@@ -17,7 +17,9 @@
 	<script type="text/javascript" src="Bootstrap3/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="DataTables/datatables.min.js"></script>
 	<script type="text/javascript" src="Bootstrap-Slider/bootstrap-slider.min.js"></script>
+	<script type="text/javascript" src="Bootbox/bootbox.min.js"></script>
 	<script type="text/javascript" src="config.js"></script>
+	<script type="text/javascript" src="authorizedAjax.js"></script>
 	<script type="text/javascript" src="searchPages.js"></script>
 	<script type="text/javascript" src="cpuCoolers.js"></script>
 </head>
@@ -59,6 +61,7 @@
 					<th>Manufacturer</th>
 					<th>Height</th>
 					<th>Liquid</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tfoot>
@@ -68,6 +71,7 @@
 					<th>Manufacturer</th>
 					<th>Height</th>
 					<th>Liquid</th>
+					<th></th>
 				</tr>
 			</tfoot>
             </table>

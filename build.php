@@ -167,7 +167,7 @@ function optionalAddButton(partType, counter)
 				case "Power Supply": addFile = "powerSupplies.php"; break;
 				case "RAM":          addFile = "ram.php"; break;
 				case "Storage":      addFile = "storage.php"; break;
-				default: console.log("Could not find page for part"); return;
+				default: console.log("Could not find page for that part"); return;
 			}
 
 			localStorage.setItem(addFile, 4);
@@ -199,8 +199,24 @@ $(document).ready(function()
 				counter++;
 				var row = $("<tr><td>" + this.partID +  '</td><td></td></tr>');
 				var id = this.id;
+
 				var delete_button = $('<button class="btn btn-danger center-block">Delete</button>').click(function()
 				{
+					let componentName = $('#' + partType + ' th:first').text();
+					let removeEndPoint;
+					switch(componentName)
+					{
+						case "Case":         removeEndPoint = CONFIG.deleteBuildCase; break;
+						case "CPU":          removeEndPoint = CONFIG.deleteBuildCPU; break;
+						case "CPU Cooler":   removeEndPoint = CONFIG.deleteBuildCPUCooler; break;
+						case "GPU":          removeEndPoint = CONFIG.deleteBuildGraphicsCard; break;
+						case "Motherboard":  removeEndPoint = CONFIG.deleteBuildMotherboard; break;
+						case "Power Supply": removeEndPoint = CONFIG.deleteBuildPowerSupply; break;
+						case "RAM":          removeEndPoint = CONFIG.deleteBuildRAM; break;
+						case "Storage":      removeEndPoint = CONFIG.deleteBuildStorage; break;
+						default: console.log("Could not find the endpoint for that part"); return;
+					}
+
 					bootbox.confirm(
 					{
 						message: "This is a confirm with custom button text and color! Do you like it?",
@@ -230,7 +246,7 @@ $(document).ready(function()
 								var ajaxProperties =
 								{
 									method: "POST",
-									url: CONFIG.deleteBuildStorage,
+									url: removeEndPoint,
 									data: JSON.stringify(postData),
 									dataType: "json"
 								};
@@ -239,6 +255,7 @@ $(document).ready(function()
 								{
 									//remove that row
 									row.remove();
+
 									//if less we now need a add button
 									if($('#' + partType + ' tbody tr:last td:last').text().indexOf("Add") == -1)
 									{
@@ -252,7 +269,7 @@ $(document).ready(function()
 									bootbox.alert("Sorry we are unable to remove the part at this time");
 								};
 
-								var request = new AuthorizedAjax("build_test.php", ajaxProperties, doneCallback, failCallback);
+								var request = new AuthorizedAjax("build.php", ajaxProperties, doneCallback, failCallback);
 								request.start();
 							}
 						}
@@ -267,7 +284,7 @@ $(document).ready(function()
 		});
 	};
 
-	var request = new AuthorizedAjax("build_test.php", ajaxProperties, doneCallback);
+	var request = new AuthorizedAjax("build.php", ajaxProperties, doneCallback);
 	request.start();
 });
 </script>

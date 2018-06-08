@@ -34,7 +34,8 @@ $(document).ready(function()
 			{ 'data': 'speed'},
 			{ 'data': 'type'},
 			{ 'data': 'sticks'},
-			{ 'data': 'size'}
+			{ 'data': 'size'},
+			{ 'data': null}
 		],
 		'columnDefs':
 		[
@@ -49,6 +50,13 @@ $(document).ready(function()
 			{
 				"targets": 5,
 				"render": formattedMemory
+			},
+			{
+				"targets": 6,
+				"visible": localStorage.getItem('ram.php') !== null && localStorage.getItem('authToken'),
+				"searchable": false,
+				"orderable": false,
+				"createdCell": addToBuildCell("ram.php", CONFIG.addBuildRAM)
 			}
 		],
 		"deferRender": true,

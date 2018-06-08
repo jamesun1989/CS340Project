@@ -30,7 +30,8 @@ $(document).ready(function()
 			{ 'data': 'manufacturer'},
 			{ 'data': 'eightyPlus'},
 			{ 'data': 'wattage'},
-			{ 'data': 'modular'}
+			{ 'data': 'modular'},
+			{ 'data': null}
 		],
 		'columnDefs':
 		[
@@ -45,6 +46,13 @@ $(document).ready(function()
 			{
 				"targets": 4,
 				"render": formattedWattage
+			},
+			{
+				"targets": 6,
+				"visible": localStorage.getItem('powerSupplies.php') !== null && localStorage.getItem('authToken'),
+				"searchable": false,
+				"orderable": false,
+				"createdCell": addToBuildCell("powerSupplies.php", CONFIG.addBuildPowerSupply)
 			}
 		],
 		"deferRender": true,

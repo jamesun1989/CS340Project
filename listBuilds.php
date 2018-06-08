@@ -36,14 +36,14 @@
 		<tr>
 		    <th>Name</th>
 		    <th>Shared</th>
-		    <th>Maybe Build Operations</th>
+		    <th></th>
 		    <th></th>
 		</tr>
     </thead>
     <tbody></tbody>
 </table>
 
-<button onclick="addBuild()" type="button" class="btn btn-default btn-medium">
+<button id="createBuildButton" type="button" class="btn btn-default">
 	<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 	Add Build
 </button>

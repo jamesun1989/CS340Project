@@ -17,6 +17,9 @@ var CONFIG =
 
 	listUserBuilds: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/listUserBuilds",
 	getUserBuild: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/getUserBuild",
+	createBuild: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/createBuild",
+	deleteBuild: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/deleteBuild",
+	updateBuild: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/updateBuild",
 
 	addBuildCase: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/addBuildCase",
 	addBuildCPU: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/addBuildCPU",

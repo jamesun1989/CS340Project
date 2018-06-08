@@ -184,8 +184,9 @@ function addToBuildCell(pageURL, addEndPoint)
 
 			var doneCallback = function()
 			{
+				let buildID = localStorage.getItem(pageURL);
 				localStorage.removeItem(pageURL);
-				window.location.replace("build.php");
+				window.location.replace("build.php?buildID=" + buildID);
 			}
 
 			var failCallback = function(jqXHR)

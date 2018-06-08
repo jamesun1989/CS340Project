@@ -183,7 +183,7 @@ $(document).ready(function()
 	var ajaxProperties =
 	{
 		method: "GET",
-		url: CONFIG.getUserBuild + "?buildID=4",
+		url: CONFIG.getUserBuild + "?" + decodeURIComponent(window.location.search.substring(1)),
 		content: "application/json",
 		dataType: "json"
 	};

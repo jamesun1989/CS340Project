@@ -43,6 +43,10 @@ $(document).ready(function()
 		
 		$.each(data, function()
 		{
+<<<<<<< HEAD
+=======
+			
+>>>>>>> 0c3da026ce7437542ede7974e430035df00b520c
 			let buildLink = 'build.php?buildID=' + this.buildID;
 
 			let name = this.name;

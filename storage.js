@@ -43,7 +43,8 @@ $(document).ready(function()
 			{ 'data': 'series'},
 			{ 'data': 'size'},
 			{ 'data': 'formFactor'},
-			{ 'data': 'ssd'}
+			{ 'data': 'ssd'},
+			{ 'data': null}
 		],
 		'columnDefs':
 		[
@@ -58,6 +59,44 @@ $(document).ready(function()
 			{
 				"targets": 5,
 				"render": formattedBool
+			},
+			{
+				"targets": 6,
+				"visible": localStorage.getItem('storage.php') !== null && localStorage.getItem('authToken'),
+				"searchable": false,
+				"orderable": false,
+				"createdCell": function(td, cellData, rowData, row, col)
+				{
+					$(td).html('<button class="btn btn-info btn-sm">Add</button>').click(function()
+					{
+						var postData =
+						{
+							buildID: localStorage.getItem('storage.php'),
+							partID: rowData.partID
+						};
+
+						var ajaxProperties =
+						{
+							method: "POST",
+							url: CONFIG.addBuildStorage,
+							data: JSON.stringify(postData),
+							dataType: "json"
+						};
+
+						var doneCallback = function()
+						{
+							window.location.replace("build_test.php");
+						}
+
+						var failCallback = function(jqXHR)
+						{
+							bootbox.alert("Sorry we are unable to add the part at this time");
+						};
+
+						var request = new AuthorizedAjax("storage.php", ajaxProperties, doneCallback, failCallback);
+						request.start();
+					});
+				}
 			}
 		],
 		"deferRender": true,

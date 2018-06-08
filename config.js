@@ -16,5 +16,8 @@ var CONFIG =
 	getStorage: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/getStorage",
 
 	listUserBuilds: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/listUserBuilds",
-	getUserBuild: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/getUserBuild"
+	getUserBuild: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/getUserBuild",
+
+	addBuildStorage: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/addBuildStorage",
+	deleteBuildStorage: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/deleteBuildStorage"
 };

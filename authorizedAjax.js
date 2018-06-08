@@ -1,8 +1,9 @@
-function AuthorizedAjax(loginRedirectUrl, ajaxProperties, doneCallback)
+function AuthorizedAjax(loginRedirectUrl, ajaxProperties, doneCallback, failCallback)
 {
 	this.loginRedirectUrl = loginRedirectUrl;
 	this.ajaxProperties = ajaxProperties;
 	this.doneCallback = doneCallback;
+	this.failCallback = failCallback;
 }
 
 AuthorizedAjax.prototype.start = function()
@@ -54,10 +55,19 @@ AuthorizedAjax.prototype.GetAuthToken = function()
 AuthorizedAjax.prototype.GetData = function()
 {
 	var that = this;
-	if(!this.ajaxProperties.url.includes('?'))
-		this.ajaxProperties.url += '?authToken=' + localStorage.getItem("authToken");
-	else
-		this.ajaxProperties.url += '&authToken=' + localStorage.getItem("authToken");
+	if(this.ajaxProperties.method == "GET")
+	{
+		if(!this.ajaxProperties.url.includes('?'))
+			this.ajaxProperties.url += '?authToken=' + localStorage.getItem("authToken");
+		else
+			this.ajaxProperties.url += '&authToken=' + localStorage.getItem("authToken");
+	}
+	else if(this.ajaxProperties.method == "POST")
+	{	
+		var object = JSON.parse(this.ajaxProperties.data);
+		object['authToken'] = localStorage.getItem("authToken");
+		this.ajaxProperties.data = JSON.stringify(object);
+	}
 
 	$.ajax(that.ajaxProperties)
 	.done(that.doneCallback)
@@ -67,6 +77,8 @@ AuthorizedAjax.prototype.GetData = function()
 		{
 			return that.GetAuthToken();
 		}
+
+		that.failCallback(jqXHR);
 	});
 };
 

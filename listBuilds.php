@@ -43,6 +43,10 @@
     <tbody></tbody>
 </table>
 
+<button onclick="addBuild()" type="button" class="btn btn-default btn-medium">
+	Add Build &plus; 
+</button>
+
 </div>
 </body>
 

@@ -1,3 +1,11 @@
+function addBuild(){
+	bootbox.alert({
+		message: "Adding build.",
+		callback: function () {
+			console.log('Adding build.');
+		}
+	});
+}
 $(document).ready(function()
 {
 	var ajaxProperties =
@@ -11,6 +19,7 @@ $(document).ready(function()
 	var doneCallback = function(data)
 	{
 		var numUnnamedBuilds = 1;
+		
 		$.each(data, function()
 		{
 			let buildLink = 'buildsPage.php?buildID=' + this.buildID;

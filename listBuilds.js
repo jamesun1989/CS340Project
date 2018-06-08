@@ -1,8 +1,29 @@
-function addBuild(){
-	bootbox.alert({
-		message: "Adding build.",
-		callback: function () {
-			console.log('Adding build.');
+function addBuild()
+{
+	bootbox.dialog(
+	{
+		title: "Create A Build",
+		message: '<p>Give the build an optional name</p><input class="form-control" type="text" name="newBuildName">',
+		buttons:
+		{
+			cancel:
+			{
+				label: "Cancel",
+				className: "btn btn-default"
+			},
+			confirm:
+			{
+				label: "Create Build",
+				className: "btn btn-primary",
+				callback: function()
+				{
+					var input = $('input[name="newBuildName"]');
+					var value = input.prop("value");
+					if(value == '')
+						value = null;
+					console.log(value);
+				}
+			}
 		}
 	});
 }
@@ -22,8 +43,7 @@ $(document).ready(function()
 		
 		$.each(data, function()
 		{
-			let buildLink = 'buildsPage.php?buildID=' + this.buildID;
-			console.log(buildLink);
+			let buildLink = 'build.php?buildID=' + this.buildID;
 
 			let name = this.name;
 			if(name === null)
@@ -31,7 +51,7 @@ $(document).ready(function()
 
 			let shared = (this.shared == '1')? "Yes": "No";
 
-			var row = $('<tr><td><a href="#">'+name+'</a></td><td>'+shared+'</td></tr>');
+			var row = $('<tr><td><a href="'+buildLink+'">'+name+'</a></td><td>'+shared+'</td></tr>');
 			var update = $('<button class="btn btn-primary">Update</button>').click(function(){
 				bootbox.alert({
 					message: "This is an alert with a callback!",

@@ -44,7 +44,8 @@
 </table>
 
 <button onclick="addBuild()" type="button" class="btn btn-default btn-medium">
-	Add Build &plus; 
+	<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+	Add Build
 </button>
 
 </div>

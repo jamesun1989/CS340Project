@@ -31,7 +31,7 @@
 
 <div class="row">
 	<div class="col-sm-12 col-lg-12">
-		<form id="loginform" class="form-horizontal jumbotron">
+		<form id="signupform" class="form-horizontal jumbotron">
 			<div class="form-group">
 				<label for="username" class="col-lg-2 control-label">Username</label>
 				<div class="col-lg-4">
@@ -52,7 +52,7 @@
 			</div>
 			<div class="form-group">
 				<div class="col-lg-offset-2 col-lg-10">
-					<button type="submit" class="btn btn-primary">Sign In</button>
+					<button type="submit" class="btn btn-primary">Register</button>
 				</div>
 			</div>
 		</form>

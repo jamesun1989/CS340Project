@@ -16,10 +16,18 @@ var CONFIG =
 	getStorage: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/getStorage",
 
 	listUserBuilds: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/listUserBuilds",
-	getUserBuild: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/getUserBuild",
 	createBuild: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/createBuild",
 	deleteBuild: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/deleteBuild",
 	updateBuild: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/updateBuild",
+
+	getBuildCase: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/getBuildCase",
+	getBuildCPU: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/getBuildCPU",
+	getBuildCPUCooler: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/getBuildCPUCooler",
+	getBuildGraphicsCard: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/getBuildGraphicsCard",
+	getBuildMotherboard: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/getBuildMotherboard",
+	getBuildPowerSupply: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/getBuildPowerSupply",
+	getBuildRAM: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/getBuildRAM",
+	getBuildStorage: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/getBuildStorage",
 
 	addBuildCase: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/addBuildCase",
 	addBuildCPU: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/addBuildCPU",

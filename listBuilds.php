@@ -11,8 +11,6 @@
 	<link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css">
 	<link rel="stylesheet" type="text/css" href="TechieBootstrap/bootstrap.techie.min.css">
 	<link rel="stylesheet" type="text/css" href="Bootstrap-Slider/bootstrap-slider.min.css">
-	<link rel="stylesheet" type="text/css" href="searchPages.css">
-
 
 	<script type="text/javascript" src="jQuery/jquery.min.js"></script>
 	<script type="text/javascript" src="Bootstrap3/js/bootstrap.min.js"></script>

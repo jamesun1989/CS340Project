@@ -28,14 +28,14 @@
 	<p class="lead">Build Parts</p>
 </div>
 
-<table data-max="1" id="caseID" class="table table-bordered" data-effect="fade">
+<table data-max="1" id="Case" class="table table-bordered" data-effect="fade">
 	<thead>
 		<tr>
 			<th colspan="3">Case</th>
 		</tr>
 		<tr>
-			<th width="44%">Part ID</th>
-			<th width="44%">Name</th>
+			<th width="42%">Name</th>
+			<th width="42%">Part ID</th>
 			<th>Operations</th>
 		</tr>
 	</thead>
@@ -43,14 +43,14 @@
 	</tbody>
 </table>
 
-<table data-max="1" id="cpuID" class="table table-bordered" data-effect="fade">
+<table data-max="1" id="CPU" class="table table-bordered" data-effect="fade">
 	<thead>
 		<tr>
 			<th colspan="3">CPU</th>
 		</tr>
 		<tr>
-			<th width="44%">Part ID</th>
-			<th width="44%">Name</th>
+			<th width="42%">Name</th>
+			<th width="42%">Part ID</th>
 			<th>Operations</th>
 		</tr>
 	</thead>
@@ -58,14 +58,14 @@
 	</tbody>
 </table>
 
-<table data-max="1" id="cpuCoolerID" class="table table-bordered" data-effect="fade">
+<table data-max="1" id="CPUCooler" class="table table-bordered" data-effect="fade">
 	<thead>
 		<tr>
 			<th colspan="3">CPU Cooler</th>
 		</tr>
 		<tr>
-			<th width="44%">Part ID</th>
-			<th width="44%">Name</th>
+			<th width="42%">Name</th>
+			<th width="42%">Part ID</th>
 			<th>Operations</th>
 		</tr>
 	</thead>
@@ -73,14 +73,14 @@
 	</tbody>
 </table>
 
-<table data-max="4" id="gpuID" class="table table-bordered" data-effect="fade">
+<table data-max="4" id="GraphicsCard" class="table table-bordered" data-effect="fade">
 	<thead>
 		<tr>
-			<th colspan="3">GPU</th>
+			<th colspan="3">Graphics Card</th>
 		</tr>
 		<tr>
-			<th width="44%">Part ID</th>
-			<th width="44%">Name</th>
+			<th width="42%">Name</th>
+			<th width="42%">Part ID</th>
 			<th>Operations</th>
 		</tr>
 	</thead>
@@ -88,14 +88,14 @@
 	</tbody>
 </table>
 
-<table data-max="1" id="motherboardID" class="table table-bordered" data-effect="fade">
+<table data-max="1" id="Motherboard" class="table table-bordered" data-effect="fade">
 	<thead>
 		<tr>
 			<th colspan="3">Motherboard</th>
 		</tr>
 		<tr>
-			<th width="44%">Part ID</th>
-			<th width="44%">Name</th>
+			<th width="42%">Name</th>
+			<th width="42%">Part ID</th>
 			<th>Operations</th>
 		</tr>
 	</thead>
@@ -103,14 +103,14 @@
 	</tbody>
 </table>
 
-<table data-max="1" id="psuID" class="table table-bordered" data-effect="fade">
+<table data-max="1" id="PowerSupply" class="table table-bordered" data-effect="fade">
 	<thead>
 		<tr>
 			<th colspan="3">Power Supply</th>
 		</tr>
 		<tr>
-			<th width="44%">Part ID</th>
-			<th width="44%">Name</th>
+			<th width="42%">Name</th>
+			<th width="42%">Part ID</th>
 			<th>Operations</th>
 		</tr>
 	</thead>
@@ -118,14 +118,14 @@
 	</tbody>
 </table>
 
-<table data-max="4" id="ramID" class="table table-bordered" data-effect="fade">
+<table data-max="4" id="RAM" class="table table-bordered" data-effect="fade">
 	<thead>
 		<tr>
 			<th colspan="3">RAM</th>
 		</tr>
 		<tr>
-			<th width="44%">Part ID</th>
-			<th width="44%">Name</th>
+			<th width="42%">Name</th>
+			<th width="42%">Part ID</th>
 			<th>Operations</th>
 		</tr>
 	</thead>
@@ -133,14 +133,14 @@
 	</tbody>
 </table>
 
-<table data-max="4" id="storageID" class="table table-bordered" data-effect="fade">
+<table data-max="4" id="Storage" class="table table-bordered" data-effect="fade">
 	<thead>
 		<tr>
 			<th colspan="3">Storage</th>
 		</tr>
 		<tr>
-			<th width="44%">PartID</th>
-			<th width="44%">Name</th>
+			<th width="42%">Name</th>
+			<th width="42%">PartID</th>
 			<th>Operations</th>
 		</tr>
 	</thead>

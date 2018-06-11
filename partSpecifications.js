@@ -1,14 +1,12 @@
 function getUrlParameters()
 {
-    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
-    sURLVariables = sPageURL.split('&'),
-    sParameterName,
-    i;
+    var sPageURL = decodeURIComponent(window.location.search.substring(1));
+    var sURLVariables = sPageURL.split('&');
 
     var object = {};
-    for(i = 0; i < sURLVariables.length; i++)
+    for(var i = 0; i < sURLVariables.length; i++)
     {
-        sParameterName = sURLVariables[i].split('=');
+        var sParameterName = sURLVariables[i].split('=');
 
         if(sParameterName[0] !== '' && sParameterName[1] !== undefined)
         {

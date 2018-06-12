@@ -6,3 +6,16 @@
 	white-space: nowrap;
 }
 
+.tooltip-inner {
+    background-color: white;
+    color: black;
+}
+
+.tooltip.top .tooltip-arrow {
+  border-top-color: white;
+  color: black
+}
+
+.slider-selection {
+  background: #ededed;
+}

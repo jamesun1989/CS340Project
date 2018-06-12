@@ -53,11 +53,10 @@
 </div>
 
 <div id="message"></div>
+<?php include 'footer.html'; ?>
 
-<footer>
-	<p>&copy; 2018 CS340 Group 5 members: Trevor Hammock, Sung Kim and Xiaoli Sun.</p>
-</footer>
 
 </div>
 </body>
+
 </html>

@@ -57,6 +57,7 @@
 			</div>
 		</form>
 	</div>
+	
 </div>
 
 <div id="message"></div>
@@ -69,12 +70,10 @@
 	<li>1 lowercase letter</li>
 	<li>1 number</li>
 	<li>minimum 6 characters in length</li>
-<ul>
+</ul>
 <br>
+<?php include 'footer.html'; ?>
 
-<footer>
-	<p>&copy; 2018 CS340 Group 5 members: Trevor Hammock, Sung Kim and Xiaoli Sun.</p>
-</footer>
-    
 </div>
+
 </body>

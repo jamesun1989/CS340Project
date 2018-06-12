@@ -45,8 +45,10 @@
 	<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 	Add Build
 </button>
+<?php include 'footer.html'; ?>
 
 </div>
+
 </body>
 
 </html>

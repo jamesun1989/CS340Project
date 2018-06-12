@@ -47,5 +47,5 @@ var CONFIG =
 	deleteBuildRAM: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/deleteBuildRAM",
 	deleteBuildStorage: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/deleteBuildStorage",
 
-	buildCheck: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/test"
+	buildCheck: "https://web.engr.oregonstate.edu/~hammockt/cs340/Project/Dev/API/buildCheck"
 };

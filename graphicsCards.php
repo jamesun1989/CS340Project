@@ -41,15 +41,19 @@
           		<div class="row">
 					<div class="col-sm-11 col-lg-11" id="manufacturerSelect"></div>
 				</div>
+				<br>
 				<div class="row">
 					<div class="col-sm-11 col-lg-11" id="gpuChipsetSelect"></div>
 				</div>
+				<br>
 				<div class="row">
 					<div class="col-sm-11 col-lg-11" id="memoryTypeSelect"></div>
 				</div>
+				<br>
 				<div class="row">
 					<div class="col-sm-10 col-lg-10" id="clockSpeedRange"></div>
 				</div>
+				<br>
 				<div class="row">
 					<div class="col-sm-10 col-lg-10" id="memoryRange"></div>
 				</div>

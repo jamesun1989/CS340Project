@@ -26,11 +26,11 @@ $(document).ready(function()
 		'columns':
 		[
 			{ 'data': 'name'},
+			{ 'data': 'manufacturer'},
 			{ 'data': 'cores'},
 			{ 'data': 'threads'},
 			{ 'data': 'socket'},
 			{ 'data': 'clockSpeed'},
-			{ 'data': 'manufacturer'},
 			{ 'data': null}
 		],
 		'columnDefs':
@@ -40,7 +40,7 @@ $(document).ready(function()
 				"createdCell": dynamicPartLink(['clockSpeed'], [formattedClockSpeed])
 			},
 			{
-				"targets": 4,
+				"targets": 5,
 				"render": formattedClockSpeed
 			},
 			{

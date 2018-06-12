@@ -62,11 +62,10 @@
             <table id="partTable" class="table table-bordered" data-effect="fade">
               <thead>
 				<tr>
-					<th width="25%">Name</th>
-					<th>Manufacturer</th>
+					<th width="30%">Name</th>
 					<th>Series</th>
 					<th>Size</th>
-					<th>Form Factor</th>
+					<th width="15%">Form Factor</th>
 					<th>SSD</th>
 					<th></th>
 				</tr>
@@ -74,7 +73,6 @@
 			<tfoot>
 				<tr>
 					<th>Name</th>
-					<th>Manufacturer</th>
 					<th>Series</th>
 					<th>Size</th>
 					<th>Form Factor</th>

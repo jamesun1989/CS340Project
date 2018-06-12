@@ -63,7 +63,6 @@
 					<thead>
 						<tr>
 							<th width="30%">Name</th>
-							<th>Manufacturer</th>
 							<th>Speed</th>
 							<th>Type</th>
 							<th>Sticks</th>
@@ -74,7 +73,6 @@
 					<tfoot>
 						<tr>
 							<th>Name</th>
-							<th>Manufacturer</th>
 							<th>Speed</th>
 							<th>Type</th>
 							<th>Sticks</th>

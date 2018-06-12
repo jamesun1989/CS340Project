@@ -38,7 +38,6 @@ $(document).ready(function()
 		[
 			{ 'data': 'name'},
 			{ 'data': 'series'},
-			{ 'data': 'manufacturer'},
 			{ 'data': 'gpuChipset'},
 			{ 'data': 'clockSpeed'},
 			{ 'data': 'memorySize'},
@@ -51,15 +50,15 @@ $(document).ready(function()
 				"createdCell": dynamicPartLink(['clockSpeed', 'memorySize', 'length'], [formattedClockSpeed, formattedMemory, formattedLength])
 			},
 			{
-				"targets": 4,
+				"targets": 3,
 				"render": formattedClockSpeed
 			},
 			{
-				"targets": 5,
+				"targets": 4,
 				"render": formattedMemory
 			},
 			{
-				"targets": 6,
+				"targets": 5,
 				"visible": localStorage.getItem('graphicsCards.php') !== null && localStorage.getItem('authToken'),
 				"searchable": false,
 				"orderable": false,

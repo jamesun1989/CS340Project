@@ -62,21 +62,21 @@
 				<table id="partTable" class="table table-bordered" data-effect="fade">
 					<thead>
 						<tr>
-							<th width="30%">Name</th>
-							<th>Manufacturer</th>
+							<th width="34%">Name</th>
+							<th width="15%">Form Factor</th>
 							<th>Socket</th>
-							<th>Form Factor</th>
-							<th>RAM Slots</th>
-							<th>Max RAM</th>
+							<th>Chipset</th>
+							<th width="13%">RAM Slots</th>
+							<th width="13%">Max RAM</th>
 							<th></th>
 						</tr>
 					</thead>
 					<tfoot>
 						<tr>
 							<th>Name</th>
-							<th>Manufacturer</th>
-							<th>Socket</th>
 							<th>Form Factor</th>
+							<th>Socket</th>
+							<th>Chipset</th>
 							<th>RAM Slots</th>
 							<th>Max RAM</th>
 							<th></th>

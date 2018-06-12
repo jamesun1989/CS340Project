@@ -20,8 +20,8 @@ $(document).ready(function()
 		[
 			{ 'data': 'name'},
 			{ 'data': 'model'},
-			{ 'data': 'manufacturer'},
 			{ 'data': 'type'},
+			{ 'data': 'cpuCoolerClearance'},
 			{ 'data': null}
 		],
 		'columnDefs':

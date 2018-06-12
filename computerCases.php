@@ -56,8 +56,8 @@
 						<tr>
 							<th width="30%">Name</th>
 							<th>Model</th>
-							<th>Manufacturer</th>
 							<th>Type</th>
+							<th width="20%">Cooler Clearance</th>
 							<th></th>
 						</tr>
 					</thead>
@@ -65,8 +65,8 @@
 						<tr>
 							<th>Name</th>
 							<th>Model</th>
-							<th>Manufacturer</th>
 							<th>Type</th>
+							<th>Cooler Clearance</th>
 							<th></th>
 						</tr>
 					</tfoot>

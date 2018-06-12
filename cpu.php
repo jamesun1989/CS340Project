@@ -66,23 +66,23 @@
 				<table id="partTable" class="table table-bordered" data-effect="fade">
 					<thead>
 						<tr>
-							<th width="20%">Name</th>
+							<th width="22%">Name</th>
+							<th width="17%">Manufacturer</th>
 							<th>Cores</th>
 							<th>Threads</th>
-							<th>Socket</th>
+							<th width="15%">Socket</th>
 							<th>Clock Speed</th>
-							<th>Manufacturer</th>
 							<th></th>
 						</tr>
 					</thead>
 					<tfoot>
 						<tr>
 							<th>Name</th>
+							<th>Manufacturer</th>
 							<th>Cores</th>
 							<th>Threads</th>
 							<th>Socket</th>
 							<th>Clock Speed</th>
-							<th>Manufacturer</th>
 							<th></th>
 						</tr>
 					</tfoot>

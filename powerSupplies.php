@@ -58,22 +58,20 @@
 				<table id="partTable" class="table table-bordered" data-effect="fade">
 					<thead>
 						<tr>
-							<th width="25%">Name</th>
-							<th>Series</th>
-							<th>Manfacturer</th>
-							<th>Efficiency</th>
-							<th>Watts</th>
-							<th>Modular</th>
+							<th>Name</th>
+							<th width="22%">Model</th>
+							<th width="17%">Efficiency</th>
+							<th width="13%">Wattage</th>
+							<th width="13%">Modular</th>
 							<th></th>
 						</tr>
 					</thead>
 					<tfoot>
 						<tr>
 							<th>Name</th>
-							<th>Series</th>
-							<th>Manfacturer</th>
+							<th>Model</th>
 							<th>Efficiency</th>
-							<th>Watts</th>
+							<th>Wattage</th>
 							<th>Modular</th>
 							<th></th>
 						</tr>

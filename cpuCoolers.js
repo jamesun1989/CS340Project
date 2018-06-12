@@ -30,7 +30,6 @@ $(document).ready(function()
 		[
 			{ 'data': 'name'},
 			{ 'data': 'model'},
-			{ 'data': 'manufacturer'},
 			{ 'data': 'height'},
 			{ 'data': 'liquid'},
 			{ 'data': null},
@@ -42,15 +41,15 @@ $(document).ready(function()
 				"createdCell": dynamicPartLink(['height', 'liquid'], [formattedHeight, formattedBool])
 			},
 			{
-				"targets": 3,
+				"targets": 2,
 				"render": formattedHeight
 			},
 			{
-				"targets": 4,
+				"targets": 3,
 				"render": formattedBool
 			},
 			{
-				"targets": 5,
+				"targets": 4,
 				"visible": localStorage.getItem('cpuCoolers.php') !== null && localStorage.getItem('authToken'),
 				"searchable": false,
 				"orderable": false,

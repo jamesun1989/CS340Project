@@ -30,7 +30,6 @@ $(document).ready(function()
 		'columns':
 		[
 			{ 'data': 'name'},
-			{ 'data': 'manufacturer'},
 			{ 'data': 'speed'},
 			{ 'data': 'type'},
 			{ 'data': 'sticks'},
@@ -44,15 +43,15 @@ $(document).ready(function()
 				"createdCell": dynamicPartLink(['speed', 'size'], [formattedSpeed, formattedMemory])
 			},
 			{
-				"targets": 2,
+				"targets": 1,
 				"render": formattedSpeed
 			},
 			{
-				"targets": 5,
+				"targets": 4,
 				"render": formattedMemory
 			},
 			{
-				"targets": 6,
+				"targets": 5,
 				"visible": localStorage.getItem('ram.php') !== null && localStorage.getItem('authToken'),
 				"searchable": false,
 				"orderable": false,
@@ -78,7 +77,7 @@ $(document).ready(function()
 		filterHelper.addSelect($('#manufacturerSelect'), 'Manufacturer', 'manufacturer', GetUnique(data, 'manufacturer'));
 		filterHelper.addSelect($('#typeSelect'),         'Type',         'type',         GetUnique(data, 'type'));
 		filterHelper.addFormattedRangeSlider($('#speedRange'), 'Speed', 'speed', GetMinMax(data, 'speed'), 1.0, 'minSpeed', 'maxSpeed', formattedSpeed);
-		filterHelper.addRangeSlider($('#sticksRange'), 'Stick Count', 'sticks', GetMinMax(data, 'sticks'), 1, 'minSticks', 'maxSticks');
+		filterHelper.addRangeSlider($('#sticksRange'), 'Sticks', 'sticks', GetMinMax(data, 'sticks'), 1, 'minSticks', 'maxSticks');
 		filterHelper.addFormattedRangeSlider($('#sizeRange'), 'Size', 'size', GetMinMax(data, 'size'), 0.1, 'minSize', 'maxSize', formattedMemory);
 	});
 });

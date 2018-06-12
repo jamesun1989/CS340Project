@@ -129,7 +129,7 @@ function FilterList(endPoint, endPointParams)
 		this.addFormattedRangeSlider(appendTo, title, searchName, values, step, endPointName1, endPointName2, null);
 	};
 
-	this.addFormattedRangeSlider = function(appendTo, title, searchName, values, step, endPointName1, endPointName2, formatter)
+	this.addFormattedRangeSlider = function(appendTo, title, searchName, values, step, endPointName1, endPointName2, formatter, scale = "linear")
 	{
 		endPointParams[endPointName1] = values[0];
 		endPointParams[endPointName2] = values[1];
@@ -147,6 +147,7 @@ function FilterList(endPoint, endPointParams)
 			max: values[1],
 			step: step,
 			value: values,
+			scale: scale,
 			tooltip: 'always',
 	  		tooltip_split: true,
 	  		tooltip_position: 'top',

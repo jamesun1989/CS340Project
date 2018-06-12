@@ -58,9 +58,8 @@
             <table id="partTable" class="table table-bordered" data-effect="fade">
               <thead>
 				<tr>
-					<th width="30%">Name</th>
+					<th width="32%">Name</th>
 					<th>Model</th>
-					<th>Manufacturer</th>
 					<th>Height</th>
 					<th>Liquid</th>
 					<th></th>
@@ -70,7 +69,6 @@
 				<tr>
 					<th>Name</th>
 					<th>Model</th>
-					<th>Manufacturer</th>
 					<th>Height</th>
 					<th>Liquid</th>
 					<th></th>

@@ -39,7 +39,6 @@ $(document).ready(function()
 		'columns':
 		[
 			{ 'data': 'name'},
-			{ 'data': 'manufacturer'},
 			{ 'data': 'series'},
 			{ 'data': 'size'},
 			{ 'data': 'formFactor'},
@@ -53,15 +52,15 @@ $(document).ready(function()
 				"createdCell": dynamicPartLink(['size', 'ssd', 'hdd', 'RPM'], [formattedSize, formattedBool, formattedBool, formattedRPM])
 			},
 			{
-				"targets": 3,
+				"targets": 2,
 				"render": formattedSize
 			},
 			{
-				"targets": 5,
+				"targets": 4,
 				"render": formattedBool
 			},
 			{
-				"targets": 6,
+				"targets": 5,
 				"visible": localStorage.getItem('storage.php') !== null && localStorage.getItem('authToken'),
 				"searchable": false,
 				"orderable": false,
@@ -88,7 +87,7 @@ $(document).ready(function()
 		filterHelper.addSelect($('#formFactorSelect'),   'Form Factor',  'formFactor',   GetUnique(data, 'formFactor'));
 		filterHelper.addSelectWithDisplay($('#ssdSelect'), 'SSD', 'isSSD', [0], ['No']);
 		filterHelper.addSelectWithDisplay($('#hddSelect'), 'HDD', 'isHDD', [0], ['No']);
-		filterHelper.addFormattedRangeSlider($('#sizeRange'), 'Size', 'size', GetMinMax(data, 'size'), 1, 'minSize', 'maxSize', formattedSize);
+		filterHelper.addFormattedRangeSlider($('#sizeRange'), 'Size', 'size', GetMinMax(data, 'size'), 1, 'minSize', 'maxSize', formattedSize, "logarithmic");
 	});
 });
 

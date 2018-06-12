@@ -26,8 +26,7 @@ $(document).ready(function()
 		'columns':
 		[
 			{ 'data': 'name'},
-			{ 'data': 'series'},
-			{ 'data': 'manufacturer'},
+			{ 'data': 'model'},
 			{ 'data': 'eightyPlus'},
 			{ 'data': 'wattage'},
 			{ 'data': 'modular'},
@@ -40,15 +39,15 @@ $(document).ready(function()
 				"createdCell": dynamicPartLink(['eightyPlus', 'wattage'], [formattedEightyPlus, formattedWattage])
 			},
 			{
-				"targets": 3,
+				"targets": 2,
 				"render": formattedEightyPlus
 			},
 			{
-				"targets": 4,
+				"targets": 3,
 				"render": formattedWattage
 			},
 			{
-				"targets": 6,
+				"targets": 5,
 				"visible": localStorage.getItem('powerSupplies.php') !== null && localStorage.getItem('authToken'),
 				"searchable": false,
 				"orderable": false,

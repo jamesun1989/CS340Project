@@ -24,9 +24,9 @@ $(document).ready(function()
 		'columns':
 		[
 			{ 'data': 'name'},
-			{ 'data': 'manufacturer'},
-			{ 'data': 'socket'},
 			{ 'data': 'formFactor'},
+			{ 'data': 'socket'},
+			{ 'data': 'chipset'},
 			{ 'data': 'ramSlots'},
 			{ 'data': 'maxRam'},
 			{ 'data': null}

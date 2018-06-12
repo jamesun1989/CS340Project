@@ -62,12 +62,11 @@
             <table id="partTable" class="table table-bordered" data-effect="fade">
             	<thead>
             		<tr>
-						<th width="25%">Name</th>
+						<th width="27%">Name</th>
 						<th>Series</th>
-						<th>Manufacturer</th>
 						<th>Chipset</th>
-						<th>Clock Speed</th>
-						<th>Memory</th>
+						<th width="16%">Clock Speed</th>
+						<th width="11%">Memory</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -75,7 +74,6 @@
 					<tr>
 						<th>Name</th>
 						<th>Series</th>
-						<th>Manufacturer</th>
 						<th>Chipset</th>
 						<th>Clock Speed</th>
 						<th>Memory</th>

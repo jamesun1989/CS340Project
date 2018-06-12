@@ -147,8 +147,9 @@
 	<tbody>
 	</tbody>
 </table>
+<div id="buildCheck"></div>
 <br>
 <hr>
-<?php include 'footer.html'; ?>\
+<?php include 'footer.html'; ?>
 </body>
 </html>

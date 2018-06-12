@@ -1,4 +1,4 @@
-function AuthorizedAjax(loginRedirectUrl, ajaxProperties, doneCallback, failCallback)
+function AuthorizedAjax(loginRedirectUrl, ajaxProperties, doneCallback, failCallback = jQuery.noop)
 {
 	this.loginRedirectUrl = loginRedirectUrl;
 	this.ajaxProperties = ajaxProperties;

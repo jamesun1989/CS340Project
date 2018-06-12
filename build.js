@@ -124,6 +124,7 @@ function deletePart(table, id, buildID, row)
 	}
 }
 
+var buildData = {};
 $(document).ready(function()
 {
 	let buildID = decodeURIComponent(window.location.search.substring(1)).split('=')[1];
@@ -139,8 +140,12 @@ $(document).ready(function()
 		{ endPoint: CONFIG.getBuildStorage,      tableID: "Storage" },
 	];
 
-	$.each(asyncData, function()
+	let waiters = [];
+	$.each(asyncData, function(index)
 	{
+		waiters.push(new $.Deferred());
+		waiters[index].done = jQuery.noop;
+
 		var ajaxProperties =
 		{
 			method: "GET",
@@ -150,6 +155,8 @@ $(document).ready(function()
 		};
 
 		let tableID = this.tableID;
+		buildData[tableID] = [];
+
 		var doneCallback = function(data)
 		{
 			let counter = 0;
@@ -161,6 +168,8 @@ $(document).ready(function()
 				let data = this.data;
 				let row = $('<tr><td>'+ data.name + '</td><td>'+data.partID+'</td></tr>');
 
+				buildData[tableID].push(data);
+
 				var delete_button = $('<button class="btn btn-danger center-block">Delete</button>').click(deletePart(table, id, buildID, row));
 				row.append($('<td></td>').append(delete_button));
 
@@ -168,9 +177,30 @@ $(document).ready(function()
 			});
 
 			optionalAddButton(table, buildID, counter);
+			waiters[index].resolve();
 		}
 
 		var request = new AuthorizedAjax("build.php?buildID="+buildID, ajaxProperties, doneCallback);
 		request.start();
+	});
+
+	$.when.apply($, waiters).then(function(data)
+	{
+		console.log(buildData);
+		$.ajax({
+			method: "POST",
+			url: CONFIG.buildCheck,
+			data: JSON.stringify(buildData),
+			content: "application/json",
+			dataType: "json",
+			headers: {"X-HTTP-Method-Override": "GET"}
+		})
+		.done(function(data)
+		{
+			$.each(data, function()
+			{
+				$('#buildCheck').append(this);
+			});
+		});
 	});
 });

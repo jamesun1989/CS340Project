@@ -103,7 +103,7 @@ function FilterList(endPoint, endPointParams)
 
 	this.addSelectWithDisplay = function(appendTo, title, searchName, list, displayList)
 	{
-		var output = '<p class="lead">'+title+'</p>' +
+		var output = '<p class="lead">'+title+'</p>' + 
 		             '<select class="form-control" name="'+searchName+'">' +
 		             	'<option value="">ALL</option>';
 
@@ -134,7 +134,7 @@ function FilterList(endPoint, endPointParams)
 		endPointParams[endPointName1] = values[0];
 		endPointParams[endPointName2] = values[1];
 
-		var output = '<p class="lead">'+title+'</p>' +
+		var output = '<p class="lead">'+title+'</p>' + '<br>'+
 		             '<div class="range">' +
 		             	'<input name="'+searchName+'" class="slider" type="text" data-slider-value="[0,0]">' +
 		             '</div>';

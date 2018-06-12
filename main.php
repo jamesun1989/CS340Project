@@ -25,42 +25,6 @@
 			<p>A website that help creating your own PC builds</p>
 			<p><a class="btn btn-primary btn-lg" href="signup.php" role="button">Sign Up Now</a></p>
 		</div>
-
-		<div class="row">
-			<div class="col-sm-6 col-lg-6">
-				<h3>Sample Builds</h3>
-				<div class="panel-group" id="accordion-panel">
-					<div class="panel panel-default">
-            			<div class="panel-heading">
-            				<h4 class="panel-title">
-            					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-panel" href="#samplebuildspanelone">
-                  					Sample Builds #1
-                				</a>
-              				</h4>
-            			</div>
-            			<div id="samplebuildspanelone" class="panel-collapse collapse in">
-            				<div class="panel-body">
-                				Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-              				</div>
-            			</div>
-          			</div>
-          			<div class="panel panel-default">
-          				<div class="panel-heading">
-          					<h4 class="panel-title">
-          						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-panel" href="#samplebuildspaneltwo">
-                  				Sample Builds #2
-                				</a>
-              				</h4>
-            			</div>
-            				<div id="samplebuildspaneltwo" class="panel-collapse collapse">
-              					<div class="panel-body">
-                					Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-              					</div>
-            				</div>
-          			</div>
-        		</div>
-      		</div>
-      	</div>
         <br>
         <hr>
 		<?php include 'footer.html'; ?>

@@ -147,6 +147,8 @@
 	<tbody>
 	</tbody>
 </table>
+<br>
+<hr>
 <?php include 'footer.html'; ?>\
 </body>
 </html>

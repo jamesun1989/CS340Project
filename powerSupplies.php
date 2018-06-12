@@ -55,7 +55,6 @@
 				</div>
 			</div>
 			<div class="col-sm-9 col-lg-9">
-				<p class="lead text-muted">Parts</p>
 				<table id="partTable" class="table table-bordered" data-effect="fade">
 					<thead>
 						<tr>
@@ -83,9 +82,11 @@
 			</div>
 		</div>
 	</div>
-	<?php include 'footer.html'; ?>
 
 </div>
+<br>
+<hr>
+<?php include 'footer.html'; ?>
 
 </div>
 </body>

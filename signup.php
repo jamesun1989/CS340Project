@@ -72,6 +72,7 @@
 	<li>minimum 6 characters in length</li>
 </ul>
 <br>
+<hr>
 <?php include 'footer.html'; ?>
 
 </div>

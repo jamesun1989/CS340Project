@@ -53,6 +53,8 @@
 </div>
 
 <div id="message"></div>
+<br>
+<hr>
 <?php include 'footer.html'; ?>
 
 

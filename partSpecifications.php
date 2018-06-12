@@ -40,5 +40,7 @@
 </table>
 
 </body>
+<br>
+<hr>
 <?php include 'footer.html'; ?>
 </html>

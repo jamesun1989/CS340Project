@@ -63,6 +63,8 @@
 		</div>
 	</div>
 </body>
+<br>
+<hr>
 <?php include 'footer.html'; ?>
 
 </html>

@@ -1,9 +1,9 @@
-function AuthorizedAjax(loginRedirectUrl, ajaxProperties, doneCallback, failCallback = jQuery.noop)
+function AuthorizedAjax(loginRedirectUrl, ajaxProperties, doneCallback, failCallback)
 {
 	this.loginRedirectUrl = loginRedirectUrl;
 	this.ajaxProperties = ajaxProperties;
 	this.doneCallback = doneCallback;
-	this.failCallback = failCallback;
+	this.failCallback = failCallback || jQuery.noop;
 }
 
 AuthorizedAjax.prototype.start = function()
